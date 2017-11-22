@@ -1,0 +1,39 @@
+.site-footer-menu {}
+.site-footer-menu__container {
+    margin: 0 auto;
+    text-align:center;
+}
+.site-footer-menu__item {
+    display:inline-block;
+    list-style-type: none;
+    margin-left:63px;
+    &:first-child {
+    	margin-left:0;
+    }
+}
+
+.site-footer-menu__item\@sm {
+    margin-left:10px;
+    &:first-child {
+        margin-left:0;
+    }
+}
+
+.site-footer-menu__link {
+    font-size:rem(16);
+    height:100%;
+    display:block;
+    color: black;
+    text-transform:uppercase;
+    font-weight:normal;
+    position: relative; 
+
+    &:hover{
+        text-decoration: none;
+    }
+}
+.site-footer-menu__link\@sm {
+    @media #{$media-mobile} {
+        font-size:rem(10);
+    }
+}

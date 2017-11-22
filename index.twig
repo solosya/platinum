@@ -1,0 +1,154 @@
+{{ set(this, 'title', _Blog.getBlogTitle()) }}
+{% set networkData = _Network.getNetworkData() %}
+{# {% set blogData    = _Blog.getBlog() %} #}
+{# {% set layout      = blogData.layout %} #}
+
+{# {{this.registerJs("Acme.CardController();")}} #}
+
+{# {% set templatePath = "window.Acme.templatePath = '" ~ networkData.templatePath ~ "';" %} #}
+{# {{this.registerJs( templatePath )}} #}
+
+{% set limit = 3 %}
+
+{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
+{% set articles = articlesArr.articles %}
+
+
+<!-- used to index each article as we loop over throughout the template -->
+{% set articleCount = _AppHelper.getApplicationEnv() == 'DEV' ? 0 : 0 %}
+{% set dev = _AppHelper.getApplicationEnv() == 'DEV' ? false : false %}
+
+
+<main id="main" class="site-main" role="main">
+    <div class="boxes boxes--2">
+        <div class="boxes__item boxes__item@sm boxes__item--1"></div>
+        <div class="boxes__item boxes__item@sm boxes__item--2"></div>
+    </div>
+
+
+    <section class="banner">
+    	{# <img class="banner__img" src="{{networkData.templatePath}}/static/images/murray.jpg"> #}
+
+	    <div id="owl-thumbnails" class="owl-carousel owl-shep-theme" data-slider-id="1">
+        	<img src="{{networkData.templatePath}}/static/images/murray.jpg" class="banner__img" data-hash="1">
+        	<img src="{{networkData.templatePath}}/static/images/murray2.jpg" class="banner__img" data-hash="2">
+        	<img src="{{networkData.templatePath}}/static/images/murray3.jpg" class="banner__img" data-hash="3">
+	    </div>
+
+
+    	<div class="boxes boxes--1 boxes--1@sm">
+	    	<div class="boxes__item boxes__item@sm boxes__item--1"></div>
+	    	<div class="boxes__item boxes__item@sm boxes__item--2"></div>
+	    </div>
+
+    </section>
+
+	<section class="container content">
+		<div class="row">
+			<div class="col-sm-12">
+	    		<h1 class="content__headline content__headline@sm">EMPOWERED TO ACHIEVE</h1>
+	    		<p class="content__tagline content__tagline@sm">Be the best and secure your ticket to INMAN Connect  in San Francisco with News Corp Australia</p>
+	    	
+	    		<h3 class="content__sub-head content__sub-head@sm">TARGETS TO ACHIEVE</h3>
+	    	</div>
+	    </div>
+		<div class="row targets">
+
+			<div class="col-sm-4 media target target@sm">
+				<img class="media__img media__img@sm target__img" src="{{networkData.templatePath}}/static/images/growth.png">
+				<div class="media__body">
+					<p class="align-left target__text target__text@sm">Growth of 20%  revenue year on year</p>
+				</div>
+			</div>
+
+			<div class="col-sm-4 media target target@sm">
+				<img class="media__img media__img@sm" src="{{networkData.templatePath}}/static/images/book.png">
+				<div class="media__body">
+					<p class="align-left target__text target__text@sm">Minimum individual agent spend  of $100k in The Courier-Mail</p>
+				</div>
+			</div>
+
+			<div class="col-sm-4 media target target@sm">
+				<img class="media__img media__img@sm" src="{{networkData.templatePath}}/static/images/medal.png">
+				<div class="media__body">
+					<p class="align-left target__text target__text@sm">Top 12 agents to attend</p>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+
+
+		<div class="row" style="margin-top:163px">
+			<div class="col-sm-11">
+				<div class="row">
+					<div class="col-sm-offset-1 col-sm-3 no-padding">
+	                   {% if articles[articleCount] %}
+	                       {{this.render('partials/_single-article.twig', {
+	                           article: articles[articleCount],
+	                           position: articleCount + 1,
+	                           imageSize: {width:301},
+	                           containerClass: 'card-1__desktop card-1__tablet card-1__mobile'
+	                       }) | raw}}
+	                       {% set articleCount = (dev) ? articleCount : articleCount + 1 %}
+	                   {% endif %}
+					</div>
+
+					<div class="col-sm-offset-1 col-sm-3 no-padding">
+						{% if articles[articleCount] %}
+	                       {{this.render('partials/_single-article.twig', {
+	                           article: articles[articleCount],
+	                           position: articleCount + 1,
+	                           imageSize: {width:301},
+	                           containerClass: 'card-1__desktop card-1__tablet card-1__mobile'
+	                       }) | raw}}
+	                       {% set articleCount = (dev) ? articleCount : articleCount + 1 %}
+	                   {% endif %}
+
+					</div>
+
+
+					<div class="col-sm-offset-1 col-sm-3 no-padding">
+						{% if articles[articleCount] %}
+	                       {{this.render('partials/_single-article.twig', {
+	                           article: articles[articleCount],
+	                           position: articleCount + 1,
+	                           imageSize: {width:301},
+	                           containerClass: 'card-1__desktop card-1__tablet card-1__mobile'
+	                       }) | raw}}
+	                       {% set articleCount = (dev) ? articleCount : articleCount + 1 %}
+	                   {% endif %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row connect connect@sm">
+			<div class="col-sm-offset-1 col-sm-10 connect__divider">
+				<h1 class="connect__headline connect__headline@sm">Inman Connect</h1>
+				<p class="connect__date connect__date@sm">Monday 16th – Friday 20th July, 2018</p>
+				<h3 class="connect__subhead connect__subhead@sm">The secret sauce of the real estate industry!</h3>
+				<p class="connect__text connect__text@sm">
+					Inman Connect is a week-long event bringing together more than 4,000 
+					leading real estate franchises, top-producing agents and brokers, 
+					tech entrepreneurs and marketing executives to explore current trends 
+					and technology.
+				</p>
+				<p class="connect__announce connect__announce@sm">Industry leaders and guest speakers to be announced in February, 2018.</p>
+			</div>
+		</div>
+
+
+
+	</section>
+
+        
+
+
+
+</main><!-- .site-main -->

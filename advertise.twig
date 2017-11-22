@@ -1,0 +1,67 @@
+{% set networkData = _Network.getNetworkData() %}
+
+{{ set(this, 'title', page.title | raw) }}
+
+    <main id="main" class="site-main eventForm" role="main">
+        
+        <div class="container">
+
+            <section>
+                <div class="row">
+                    <div class="col-sm-9 header">
+                        <div class="hk">
+                            <h2>{{ page.title }}</h2>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12 col-md-5">
+                    {{this.render('layouts/partials/messages.twig') | raw }}
+                    <form id="contactForm" class="form-horizontal form-contact" action="{{_AppHelper.getContactFormUrl()}}" method="post" autoComplete="off">
+                        <input type="hidden" name="_csrf" value="{{_AppHelper.getCsrfToken()}}" />
+                        <div class="controls-full">
+                            <div class="form-group field-contactform-name required">
+                                <input type="text" id="contactform-name" class="form-control" name="name" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="controls-full">
+                            <div class="form-group field-contactform-email required">
+                                <input type="text" id="contactform-email" class="form-control" name="email" placeholder="Email address">
+                            </div>
+                        </div>
+                        <div class="controls-full">
+                            <div class="form-group field-contactform-message required">
+                                <textarea class="form-control" name="message" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="controls-full">
+                            <div class="form-group">
+                                <button type="submit" id="btnContact" class="_btn submit" style="margin-top:20px;" name="contact-button">SEND</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-sm-12 col-md-1 visible-md-block visible-lg-block"></div>
+
+                <div class="col-sm-12 col-md-3 contact-details">
+
+                    {{page.content | raw}}
+
+                    {% if (networkData.title | lower) == 'dairy news' %}
+
+                        <p><a href="{{networkData.templatePath}}/static/assets/Dairy%20News%20National%20Media%20Kit.pdf">Download Media Kit - National</a></p>
+                        <p>
+                        <p><a href="{{networkData.templatePath}}/static/assets/Dairy%20News%20Regional%20Victoria%20Media%20Kit.pdf">Download Media Kit - Regional Victoria</a></p>
+
+                    {% endif %}
+
+
+                </div>
+
+            </section>
+        </div>
+    </main>

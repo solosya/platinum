@@ -1,0 +1,77 @@
+{% set path = networkData.templatePath~'/static/images/platinum-logo.png'%}
+{% set pathNews = networkData.templatePath~'/static/images/newscorp.png'%}
+
+{% set menuItems = blog.blogFooterMenu %}
+
+
+
+
+<footer class="site-footer site-footer@sm">
+    <div class="container">        
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="navigation-logo--footer navigation-logo--footer@sm">
+                    <a  class="navigation-logo__link navigation-logo__link--footer" 
+                        href="{{networkData.defaultBlogUrl}}" 
+                        rel="Home" 
+                        tabindex="-1" 
+                        title="Home">
+                        <img class="navigation-logo__img 
+                                    navigation-logo__img--footer-platinum  
+                                    navigation-logo__img--footer-platinum@sm" 
+                              src="{{path}}">
+                    </a>
+                    <a  class="navigation-logo__link navigation-logo__link--footer-news" 
+                        href="{{networkData.defaultBlogUrl}}" 
+                        rel="Home" 
+                        tabindex="-1" 
+                        title="Home">
+                        <img class="navigation-logo__img 
+                                    navigation-logo__img--news 
+                                    navigation-logo__img--news@sm" 
+                             src="{{pathNews}}">
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-12">
+                <div class="site-footer-menu">
+
+                    <ul class="site-footer-menu__container ">
+
+                    {% for parentItem in menuItems  %}
+
+                       {% set activeClass = (parentItem.link == _AppHelper.getServerUrl()) ? 'site-menu__link--active' : ''%}
+                       {% set externalClass = (parentItem.isExternal) ? 'site-menu__link--external-link' : '' %}
+
+                       <li class="site-footer-menu__item site-footer-menu__item@sm">
+                            <a href="{{parentItem.link |raw}}" class="site-footer-menu__link site-footer-menu__link@sm {{activeClass}} {{externalClass}}" {% if parentItem.target != "" %}target="{{parentItem.target}}"{% endif %}>
+                                {% if parentItem.label != "" %}
+                                    {{parentItem.label}}
+                                {% elseif parentItem.blogTitle != "" %}
+                                    {{parentItem.blogTitle}}
+                                {% elseif parentItem.pageTitle != "" %}
+                                    {{parentItem.pageTitle}}
+                                {% endif %}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div><!--row-->
+
+        <div class="row">
+            <div class="col-xs-12">
+                <p class="site-footer__copyright site-footer__copyright@sm">Copyright Platinum Agents Club 2018</p>
+            </div>
+        </div>
+    </div><!-- .container-->
+
+    
+</footer>
+

@@ -1,0 +1,57 @@
+{% set sectionCount = (dev) ? articleCount : 0 %}
+
+<section class="row">
+    <div class="col-sm-9 section-header">
+        <p><a href="{{articles.link}}">View All</a></p>
+        <div class="hk">
+            <h2>{{ section }}</h2>
+            <p></p>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        {% if articles.feed.articles[sectionCount] %}
+            {{this.render('../_single-article.twig', {
+                article: articles.feed.articles[sectionCount], 
+                imageSize: {width:409, height:530},
+                containerClass: 'home-feature-xs home-feature-tablet home-feature-mobile'
+            }) | raw}}
+            {% set sectionCount = (dev) ? articleCount : sectionCount + 1 %}
+        {% endif %}
+
+        <hr class="divide visible-xs-block space-only">
+
+    </div>
+    <div class="col-sm-2">
+        {% set cardspace = ['', 'row-space'] %}
+        {% if articles.feed.articles[sectionCount] %}
+            {{this.render('../_single-article.twig', {
+                article: articles.feed.articles[sectionCount], 
+                imageSize: {width:300},
+                containerClass: 'card-sm card-sm-mobile ' ~ cardspace[i]
+            }) | raw}}
+            {% set sectionCount = (dev) ? articleCount : sectionCount + 1 %}
+            <hr class="divide visible-xs-block">
+
+        {% endif %}
+
+    </div>
+
+
+    <div class="col-sm-3">
+        
+        {% for i in 0..1 if articles.feed.articles[sectionCount] %}
+            {{this.render('../_single-article.twig', {
+                article: articles.feed.articles[sectionCount], 
+                imageSize: {width:300},
+                containerClass: 'feature-side feature-side-tablet card-sm-mobile'
+            }) | raw}}
+            {% set sectionCount = (dev) ? articleCount : sectionCount + 1 %}
+            {% if i == 0 %}
+                <hr class="divide">
+            {% endif %}
+
+        {% endfor %}
+
+    </div>
+</section>

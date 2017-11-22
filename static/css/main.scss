@@ -1,0 +1,72 @@
+//settings
+@import "settings.variables";
+
+//tools
+@import "tools.functions";
+@import "tools.mixins";
+@import "tools.placeholder";
+
+//generic
+@import "bootstrap";
+@import "font-awesome-4.7.0/scss/font-awesome";
+
+//****** require refactoring
+@import "login";
+@import "profile";
+@import "user_profile";
+@import "user_posts";
+@import "owl-theme";
+@import "common";
+
+
+
+//elements
+
+//objects
+
+//components
+@import "component.site-logo";
+@import "component.site-footer";
+@import "component.site-footer-menu";
+@import "component.banner";
+@import "component.box-decoration";
+@import "component.content";
+@import "component.contact";
+@import "component.connect";
+@import "component.target";
+@import "component.related-articles";
+@import "component.article";
+
+
+//Article page **** refacgtor ****
+@import "article-content";
+
+
+//trumps
+
+
+//Header
+@import "site-menu";
+@import "site-header";
+
+
+
+
+//Section page
+@import "section-page";
+
+//Static Pages
+@import "page";
+
+@import "event";
+
+
+
+// layouts
+@import "article-gallery";
+
+
+//Cards
+@import "card";
+@import "card-1";
+@import "card-2";

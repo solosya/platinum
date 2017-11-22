@@ -1,0 +1,103 @@
+{% import "partials/quotes.twig" as quotes %}
+{{ set(this, 'title', article.title) }}
+{{ this.registerLinkTag({rel:'amphtml', href:_AppHelper.getServerUrl(false)~'?amp=1'}) }}
+
+
+{% set articleImg = false %}
+{% if article.media|length > 0 %}
+    {% set articleImg = _Media.getMediaUrl(article.media[0],1094, 515, {'crop': 'fill', 'gravity': 'auto'} ) %}
+{% endif %}
+
+{% set publishDate = _AppHelper.getDateTimeBasedOnTimezone(article.publishDate, 'F, Y') %}
+
+
+<main id="main" class="gallery" role="main">
+
+
+
+    <article class="article-main">
+
+
+        <div class="gallery-row">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+
+                        <div id="owl-thumbnails" class="owl-carousel owl-shep-theme" data-slider-id="1">
+                            {% for image in article.media %}
+                                {% set articleImg = _Media.getMediaUrl(image,1094, 515, {'crop': 'fill', 'gravity': 'auto'} ) %}
+
+                                <figure class="featured" data-hash="{{loop.index}}">
+                                    <img src="{{articleImg}}" class="img-responsive">
+                                    {% if image.type == 'video' %} 
+                                        {% set mediaUrl = "" %}
+                                        {% if image.media.isSystemVideo == 'TRUE'%}
+                                            {% set mediaUrl = _Media.getMediaVideoUrl(image, 0, 0,{resource_type: 'video', format: 'mp4'})  %}
+                                        {% endif %}
+
+                                        <a  href="javascript:void(0)" 
+                                            itemprop="video" 
+                                            class="video-overlay video-player" 
+                                            data-source="{{image.source}}" 
+                                            data-video-id="{{image.videoId}}" 
+                                            data-url="{{mediaUrl}}" 
+                                            data-poster="{{image.path}}" 
+                                            data-caption="{{article.title | raw}}">
+                                            
+                                            <div class="icons">
+                                               <div class="icon"><i class="fa fa-play"></i></div>
+                                            </div>
+                                        </a>
+                                    {% endif %}
+                                    <figcaption>
+                                        <p>{{image.caption}}</p>
+                                        <p class="count">{{loop.index}} of {{loop.revindex + loop.index0}}</p>
+                                    </figcaption>
+                                </figure>
+                            {% endfor %}
+                        </div>
+                        <div id="owl-thumbs" class="owl-thumbs" data-slider-id="1">
+                            {% for image in article.media %}
+                                {% set articleImg = _Media.getMediaUrl(image,152, 95, {'crop': 'fill', 'gravity': 'auto'} ) %}
+                                <img id="owl-{{loop.index}}" src="{{articleImg}}" class="owl-thumb-item">
+                            {% endfor %}
+
+                        </div>
+
+                        <div class="content-block-top">
+
+                            <p class="category">{{article.label}}</p
+                            ><time datetime="{{publishedDate}}">{{article.publishedDate}}</time>
+                            
+                            {# <h1>{{ quotes.smarten(article.title) }}</h1> #}
+                            
+                            <p class="author"><span>By</span> {{ article.createdBy['displayName'] }}</p>
+
+                        </div><!--content-block-top-->
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{#         <div class="container">
+
+            <div class="row article-row">
+                <div class="col-md-6">
+
+                    <div class="article_content">
+                        {{ article.content | _resizeImages({'width': 400}) | raw }}
+                    </div><!-- .content-->
+
+                </div>
+
+
+            </div>
+        </div><!-- .page-content--> #}
+
+    </article>
+</main><!--site-main-->
+

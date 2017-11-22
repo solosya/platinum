@@ -1,0 +1,85 @@
+{% import "partials/quotes.twig" as quotes %}
+{{ set(this, 'title', article.title) }}
+{{ this.registerLinkTag({rel:'amphtml', href:_AppHelper.getServerUrl(false)~'?amp=1'}) }}
+
+{% set blogInfo = _Blog.getBlog() %}
+{% set networkData = _Network.getNetworkData() %}
+
+
+
+{% set articleImg = false %}
+{% if article.media|length > 0 %}
+    {% set articleImg = _Media.getMediaUrl(article.media[0],1094, 515, {'crop': 'fill', 'gravity': 'auto'} ) %}
+{% endif %}
+
+{% set publishDate = _AppHelper.getDefaultTimezoneDateTime(article.publishDate, 'F, Y') %}
+
+{% set relatedArticles = _Article.getPopularArticles({ blogId: article.blog.id, limit: 3, excludeArticleIds : [article.id] }) %}
+{% set recentArticles = _Article.getRecentArticles({ limit: 5, excludeArticleIds : [article.id] }) %}
+
+{% set testCount = 0 %}
+
+
+<main id="main" class="" role="main">
+    <div class="boxes boxes--2 boxes--article">
+        <div class="boxes__item boxes__item--1"></div>
+        <div class="boxes__item boxes__item--2"></div>
+    </div>
+
+    <div class="banner banner--article">
+        <img class="banner__img" src="{{networkData.templatePath}}/static/images/murray.jpg">
+        <div class="boxes boxes--1 boxes--1@sm">
+            <div class="boxes__item boxes__item@sm boxes__item--1"></div>
+            <div class="boxes__item boxes__item@sm boxes__item--2"></div>
+        </div>
+
+    </div>
+
+            <section class="container content content--article content--article@sm">
+
+        <article class="article-main">
+            <div class="row">
+                <div class="col-sm-offset-2 col-sm-8 article-main__header">
+                    <h1 class="content__headline content__headline--article content__headline--article@sm">{{ quotes.smarten(article.title) }}</h1>
+                    <p class="article-main__author article-main__author@sm" href="{{_AppHelper.getUserProfileUrl(article.createdBy['username'])}}"><span>By</span> {{ article.createdBy['displayName'] }}</p>
+                </div>
+            </div>
+
+            <div class="row article-content">
+                <div class="col-sm-offset-2 col-sm-8 align-left">
+                    {{ article.content | _resizeImages({'width': 400}) | raw }}
+                </div>
+            </div>
+        </article>
+
+
+        <div class="row related-articles">
+
+            <div class="col-sm-11">
+                <div class="row">
+                    <div class="col-sm-offset-1">
+                        <h2 class="related-articles__header related-articles__header@sm">MORE ARTICLES</h2>
+                    </div>
+                </div>
+
+                <div class="row related-articles__articles">
+
+
+                    {% for i in 0..2 if recentArticles[i] %}
+                        <div class="col-sm-offset-1 col-sm-3 no-padding">
+                            {{this.render('partials/_single-article.twig', {
+                                article: recentArticles[i], 
+                                imageSize: {width:301},
+                                containerClass: 'card-1__desktop card-2__mobile'
+                            }) | raw}}
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+</main><!--site-main-->
+

@@ -1,0 +1,51 @@
+.showOnScroll {
+    top:0 !important;
+}
+
+.fixHeader {
+    position:fixed !important;
+    width:100%;
+}
+
+
+.site-header.mobile-menu-active {
+    .site-header-main {
+        background:color(dark);
+
+        .site-nav {
+            .site-nav__menu-hamburger {
+                margin-top:0;
+                background-image: url(../icons/mobile-close.svg);
+                background-size:cover;
+                width:20px;
+                height:20px;
+            }
+        }
+    }
+}
+
+.site-menu__container {
+    margin:0;
+}
+
+.site-header {
+    height:130px;
+    position:relative;
+    padding:0;
+    background:#fff;
+    z-index:140;
+    width:100%;
+    
+    @include transition(100000s);
+
+    @media #{$media-mobile} {
+        height:70px;
+        padding-bottom: 65px;
+        position: fixed;
+        top: 0;
+    }
+
+    @media #{$media-iPad} {
+        height:auto;
+    }
+}

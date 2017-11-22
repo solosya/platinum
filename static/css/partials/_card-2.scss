@@ -1,0 +1,140 @@
+@mixin card-2-base() {
+    position:relative;
+    a.card {
+
+        > article {
+            position:relative;
+            > figure{
+            }
+            > .content{
+                padding: 0;
+                position:relative;
+
+                &:after {
+                    content: "";
+                    display:block;
+                    background: url('../images/diamonds.svg');
+                    width:22px;
+                    height:15px;
+                    position:absolute;
+                    bottom:0;
+                    left: 50%;
+                    -webkit-transform: translateX(-50%);
+                    -moz-transform: translateX(-50%);
+                    -ms-transform: translateX(-50%);
+                    transform: translateX(-50%); 
+                }
+
+
+                > div {
+                    display:none;
+                }
+                > h2{
+                    text-align: center;
+                    font-family: $font-family-serif;
+                    color: white;
+                }
+                > p.excerpt {
+                    display:none;
+                }
+            }
+            > time {
+                display:none;
+            }
+        }
+        &.article.without__image {
+            .content {
+            }
+        }   
+    }
+}
+
+
+.card-2__desktop {
+    @media screen and (min-width: $mmd-break){
+        @include card-2-base();
+
+
+        a.card {
+            @include card-image-top(100%, 233px);
+
+            > article {
+                > .content{
+                    height:125px;
+                    position:relative;
+
+
+                    > h2{
+                        margin-top:23px;
+                        font-size:rem(20);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+.card-2__tablet {
+    @media screen and (min-width: $sm-break) and (max-width: $mmd-break-down) {
+        @include card-2-base();
+
+
+        a.card {
+            @include card-image-top(100%, 233px);
+
+            > article {
+                > .content{
+                    height:125px;
+                    position:relative;
+
+
+                    > h2{
+                        margin-top:23px;
+                        font-size:rem(20);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+.card-2__mobile {
+    @media #{$media-mobile} {
+        @include card-2-base();
+
+        margin-bottom: 43px;
+
+        a.card {
+            @include card-image-left(128px, 100px);
+            height:100px;
+            > article {
+                height:100%;
+                > figure {
+                    margin-right: 9px;
+                }
+                > .content{
+                    height:100%;
+                    position:relative;
+
+                    > h2{
+                        text-align:left;
+                        margin-top:0;
+                        font-size:rem(14);
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,220 @@
+	.events-heading {
+
+		margin-bottom: 0 !important;
+
+        div.hk {
+            display:flex;
+            h2 {
+            	font-family: $font-family-sans-serif !important;
+                flex-grow: 0;
+                font-size: rem(36) !important;
+                font-weight:300 !important;
+                margin-bottom:25px !important;
+                margin-top:0px !important;
+                color:color(red) !important;
+                text-transform:uppercase;
+            }
+            p {
+                flex-grow: 1;
+                &:after {
+                    content: '';
+                    display:block;
+                    height:1px;
+                    background:color(lightgrey);
+                    width:99%;
+                    margin-top: 33px !important;
+                    margin-left: 7px !important;
+                }
+            }
+        }	
+	}
+
+
+.event {
+	h2 {
+		font-size: rem(12);
+		font-weight: bold;
+		line-height: 0.85;
+		margin-top: 10px;
+		font-family: $font-family-sans-serif !important;
+
+		@media screen and (max-width: $mobile-break) {
+			margin-top: 5px;
+			line-height: 1.67;
+			
+		}
+		
+	}
+
+	.main-content {
+		margin-top:40px;
+		margin-bottom:96px;
+		
+		.event-content, .event-details {
+
+			p {
+				font-size: rem(16);
+				font-weight: 300;
+				font-family: $font-family-sans-serif;
+				font-style: normal;
+				font-stretch: normal;
+				line-height: 1.8;
+				letter-spacing: normal;
+				color: color(darkgrey);
+				padding-right: 10px;
+				clear: both;
+				margin-bottom: 20px;
+				@media screen and (max-width: $sm-break) {
+					// font-size: rem(14);
+					line-height: 1.62;
+				}
+			}
+			
+			&:before {
+			    content: "";
+			    position: absolute;
+			    top: 0;
+			    bottom: 80px;
+			    right: -53px;
+			    width: 1px;
+			    background: color(lightblue);
+			    @media screen and (max-width: 991px) {
+			       display: none;
+
+			    }
+			}
+
+
+			.content-block-top {
+				margin-bottom: 10px;
+				margin-top:40px;			
+			}
+
+			p.category {
+				font-size:rem(13);
+				color:color(red);
+				float:left;
+				text-transform:uppercase;
+				margin-right:8px;
+				margin-bottom: 0px;
+				line-height: 1.18;				
+			}
+			
+			time {
+				font-size: rem(15);
+				font-family:$font-family-serif;
+				color: color(grey);
+				position:relative;
+				top:-5px;
+				margin-bottom: 0px;
+				line-height: 1.18;				
+
+				&:before {
+					content:'';
+					display:inline-block;
+					height:1px;
+					width:41px;
+					background:color(grey);
+					margin-right:8px;
+					margin-bottom:2px;
+				}
+			}
+
+
+			h1 {
+
+				font-size: rem(46);
+				font-weight: bold;
+				line-height: 1.23;
+				letter-spacing: 0.5px;
+				margin-top: 0;
+				margin-bottom: 0;
+				color:	#1c2a38;
+				font-family: $font-family-sans-serif;
+				
+				@media screen and (max-width: $sm-break) {
+					margin-top: 40px;
+
+				}
+				@media screen and (max-width: $sm-break) {
+					font-size: rem(26);
+				}
+			}
+			
+			p.author {
+				font-family: $base-font-family;
+				font-size: rem(16);
+				color: color(darkgrey);
+				text-transform:uppercase;
+				margin-top:8px;
+				margin-bottom:20px;
+				line-height: 1.18;				
+
+				>span {
+					font-family:$font-family-serif;
+					font-style:italic;
+					text-transform:lowercase;
+				}
+				@media screen and (max-width: $mobile-break) {
+					font-size: rem(11);
+				}
+
+			}
+
+
+			p.date {
+				font-family:$font-family-sans-serif;
+				margin-top: 45px;
+				font-size: rem(22);
+				font-weight: bold;
+				color: color(red);
+				line-height:1.18;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				margin-bottom: 0px;
+
+				@media screen and (max-width: $mobile-break) {
+					font-size: rem(14);
+				}
+			}
+
+			p.time {
+				font-family:$font-family-serif;
+				font-style: italic;
+				font-weight: normal;
+				font-size: rem(20);
+				letter-spacing: 0.2px;
+				margin-bottom: 0px;
+				line-height: 1.18;				
+			}
+
+			p.address {
+				font-family:$font-family-serif;
+				font-style: italic;
+				font-weight: normal;
+				font-size: rem(16);
+				letter-spacing: 0.2px;
+				line-height:1.25;
+				padding: 20px 0;	
+				margin-bottom: 0px;		
+			}
+
+
+		}
+
+		.event-map {
+			margin-top: 90px;
+		}
+
+		.sidebar {
+			padding-left:115px;
+		}
+
+		figure.featured {
+			>img {
+				width:100%;
+			}
+		}
+	}
+}
+

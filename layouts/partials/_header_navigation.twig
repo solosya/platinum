@@ -1,0 +1,74 @@
+{% set path = networkData.templatePath~'/static/images/platinum-logo.png'%}
+
+<header id="masthead" class="site-header showOnScroll">
+
+    <div class="container">
+
+        <div class="navigation-logo">
+            <a  class="navigation-logo__link" 
+                href="{{networkData.defaultBlogUrl}}" 
+                rel="Home" 
+                tabindex="-1" 
+                title="Home">
+                <img class="navigation-logo__img navigation-logo__img--platinum navigation-logo__img--platinum@sm" src="{{path}}">
+            </a>
+        </div>
+        <!--  ************ -->
+        <!--  DESKTOP MENU -->
+        <!--  ************ -->
+
+        <nav class="site-nav" id="menu-mobile">
+            <a href="#" class="site-nav__menu-hamburger"></a>
+
+            <div class="site-menu">
+                <ul class="site-menu__container" id="menu-primary-menu">
+                    <li class="site-menu__item--search visible-xs-block">
+                        <fieldset class="site-menu__search">
+                            <form method="get" action="{{networkData.defaultBlogUrl}}/search">
+                                <label for="header-search" class="assistive-text sr-only">Search</label>
+                                <input type="text" class="field" name="s" id="header-search" placeholder="Search" required="">
+                                <button class="submit search-icon-mobile" type="submit" id="mobileSearchButton"></button>
+                            </form>
+                        </fieldset>  
+                    </li>
+
+                    {% set menuItems = blog.blogHeaderMenu %}
+                    {% for parentItem in menuItems  %}
+
+                       {% set activeClass = (parentItem.link == _AppHelper.getServerUrl()) ? 'site-menu__link--active' : ''%}
+                       {% set externalClass = (parentItem.isExternal) ? 'site-menu__link--external-link' : '' %}
+
+                       <li class="site-menu__item">
+                            <a href="{{parentItem.link |raw}}" class="site-menu__link {{activeClass}} {{externalClass}}" {% if parentItem.target != "" %}target="{{parentItem.target}}"{% endif %}>
+                                {% if parentItem.label != "" %}
+                                    {{parentItem.label}}
+                                {% elseif parentItem.blogTitle != "" %}
+                                    {{parentItem.blogTitle}}
+                                {% elseif parentItem.pageTitle != "" %}
+                                    {{parentItem.pageTitle}}
+                                {% endif %}
+                            </a>
+
+                             {% if parentItem.children is defined and parentItem.children | length > 0 %}
+                                <span class="list-arrow"></span>
+
+                                 <ul class="site-sub-menu">
+                                    {% for childItem in parentItem.children %}
+                                        {% set externalClass = (childItem.isExternal) ? 'external-link' : '' %}
+                                        <li class="site-sub-menu__item">
+                                            <a class="site-sub-menu__link {{externalClass}}" href="{{childItem.link |raw}}" {% if childItem.target != "" %}target="{{childItem.target}}"{% endif %}>
+                                             {{ ((childItem.label is empty) ? ((childItem.pageTitle is empty) ? childItem.blogTitle : childItem.pageTitle) : childItem.label)}}
+                                            </a>
+                                        </li>
+                                   {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+

@@ -1,0 +1,18 @@
+.banner {
+	width:100%;
+	color:white;
+	height:1100px;
+	position:absolute;
+	overflow-x:hidden;
+	@include gradientafter();
+}
+.banner--article{
+	height:543px;
+	overflow: unset;
+}
+
+.banner__img {
+	height:100%;
+	width:100%;
+	object-fit:cover;
+}

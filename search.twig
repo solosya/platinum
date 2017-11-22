@@ -1,0 +1,41 @@
+{{this.registerJs("CardController();")}}
+
+{% set limit = 100 %}
+{% set articles = _Search.searchArticles({'limit': limit, 'offset': 0, 'search': search}) %}
+{% set networkData = _Network.getNetworkData() %}
+
+
+<!-- used to index each article as we loop over throughout the template -->
+{% set articleCount = 0 %}
+
+    <main id="main" class="site-main searchPage" role="main">
+
+        <section class="card-group">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-9">
+                        <h1>Search Results</h1>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-bottom:25px;">
+                    <div class="col-sm-9 col-md-6">
+                        <h2>{{ articles | length }} Results found for ‘{{ search }}’</h2>
+                        {% for article in articles %}                                                                
+                            {{this.render('partials/_single-article.twig', {
+                                article: article, 
+                                position: (articleCount+1), 
+                                imageSuppress: true,
+                                containerClass: 'search search-tablet search-mobile'}) | raw}}
+                            {% set articleCount = articleCount + 1 %}
+                        {% endfor %}
+                    </div>
+                    <div class="col-sm-3 col-md-3">
+                        <div class="ad-square clearfixed"></div>
+                    </div>
+                </div><!-- .row-->
+            </div><!-- .container-->
+        </section><!-- .top-stories-->
+    </main><!-- .site-main -->
+

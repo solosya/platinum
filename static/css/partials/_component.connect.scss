@@ -1,0 +1,79 @@
+.connect {
+	margin-top:115px;
+	margin-bottom: 80px;
+	text-align:center;
+	color:white;
+}
+.connect\@sm {
+	@media #{$media-mobile} {
+		margin-top:0;
+	}
+}
+
+
+.connect__divider {
+	border-top: 1px solid color(light);
+}
+.connect__headline {
+	margin-top: 80px;
+	font-size:rem(60);
+	font-weight:300;
+	text-transform: uppercase;
+}
+.connect__headline\@sm {
+	@media #{$media-mobile} {
+		font-size:rem(22);
+	}
+}
+
+.connect__date {
+	font-family:$base-font-family;
+	margin-top:10px;
+	font-size:rem(24);
+	font-weight:300;
+	text-transform: uppercase;
+}
+.connect__date\@sm {
+	@media #{$media-mobile} {
+		margin-top:0;
+		font-size:rem(14);
+	}
+}
+
+.connect__subhead {
+	margin-top:60px;
+	font-size:rem(24);
+	font-weight:500;
+	text-transform: uppercase;
+}
+.connect__subhead\@sm {
+	@media #{$media-mobile} {
+		font-size:rem(14);
+	}
+}
+
+.connect__text {
+	width:853px;
+	margin-top:20px;
+	font-size:rem(24);
+	font-weight:200;
+	line-height:1.58;
+	margin:auto;
+}
+.connect__text\@sm {
+	@media #{$media-mobile} {
+		width:auto;
+		font-size:rem(14);
+	}
+}
+
+.connect__announce {
+	margin-top:26px;
+	font-size:rem(18);
+	font-weight:400;
+}
+.connect__announce\@sm {
+	@media #{$media-mobile} {
+		font-size:rem(12);
+	}
+}

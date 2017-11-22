@@ -1,0 +1,27 @@
+.site-footer{
+    width: 100%;
+    margin-top: 0;
+    padding-top:66px;
+    background: #fff;
+    height:345px;
+}
+.site-footer\@sm{
+	@media #{$media-mobile} {
+	    padding-top:32px;
+	    height:auto;
+	}
+}
+
+.site-footer__copyright {
+	margin-top:61px;
+	font-size:rem(12);
+	text-align:center;
+}
+.site-footer__copyright\@sm {
+	@media #{$media-mobile} {
+		margin-top:30px;
+		font-size:rem(12);
+		text-align:center;
+		margin-bottom:25px;
+	}
+}

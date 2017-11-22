@@ -1,0 +1,62 @@
+{% set networkData = _Network.getNetworkData() %}
+
+<main class="site-main">
+    {{ set(this, 'title', 'User Profile') }}
+
+    {% set profileImage =_Media.getMediaUrl(userDetails.media, 500, 500, {crop: 'thumb', gravity: 'face', type:'user'} )%}
+    {{this.registerJs("$('.loginModal').loginModal({});")}}
+
+    {% set myFollowers = _User.getFollowers(userDetails.guid) %}
+    {% set myFollowings = _User.getFollowings(userDetails.guid) %}
+    {% set myBlogs = _User.getBlogsFollowedByUser(userDetails.guid) %}
+
+    <!-- Begin Container -->
+    <section class="container">
+        <div class="row">
+            <!-- Begin User Profile -->
+            <div class="col-profile-left col-sm-4 col-xs-12">
+                <!-- Begin User Profile Sidebar -->
+                <div class="profile-sidebar">
+                    <div class="userprofile-sidebar-inner">
+                        <img src="{{profileImage}}" class="img-responsive">
+                        <div class="inner-descr">
+                            <h2 class="user-name">{{Html.encode(userDetails.firstname)}} {{Html.encode(userDetails.lastname)}}</h2>
+                            
+                            {% if (networkData.title | lower) != 'dairy news' %}
+                                {% if _User.isGuest() %}
+                                    <a href="javascript:void(0)" class="button follow forceLoginModal">Follow</a>
+                                {% endif %}
+                                {% if not _User.isGuest() and _User.getId() != userDetails.id %}
+                                    {% set isUserFollowing = _User.isUserFollowing('user', userDetails.id)  %}
+                                    <a href="javascript:void(0)" class="button follow" data-guid="{{userDetails.guid}}" data-status="{% if isUserFollowing == 'TRUE' %}unfollow{% else %} follow {% endif %}">{% if isUserFollowing == 'TRUE' %} Unfollow {% else %} Follow {% endif %}</a>
+                                {% endif %}
+                            {% endif %}
+
+                            <p class="bio">{{Html.decode(userDetails.bio) | raw}}</p>
+                            <div class="user-social">
+                                <a href="mailto:{{userDetails.email}}" class="share-icon email-icon" style="padding-left: 12px;"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //End User Profile Sidebar -->
+            </div>
+
+            <div class="col-profile-right col-sm-8 col-xs-12 profile-details">
+            {% if (networkData.title | lower) != 'dairy news' %}
+            {# there are no blogs on dairy news #}
+                {{this.render('partials/user-profile/_user_blogs.twig', {userOwnerBlogs : userOwnerBlogs}) | raw }} 
+            {% endif %}
+
+                {{this.render('partials/user-profile/_recent_articles.twig', {myArticles : myArticles, articleCount: 0 }) | raw }}
+
+            {% if (networkData.title | lower) != 'dairy news' %}
+            {# there are no users on dairy news #}
+                {{this.render('partials/user-profile/_user_following.twig', {myBlogs : myBlogs, myFollowings: myFollowings}) | raw }}
+                {{this.render('partials/user-profile/_user_followed_by.twig', {myFollowers : myFollowers}) | raw }}
+            {% endif %}
+            </div>
+        </div>
+    </section>
+    <!-- //End Container -->
+</main>

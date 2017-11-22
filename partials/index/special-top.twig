@@ -1,0 +1,80 @@
+</div>
+<section class="home-main-stories">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-9 col-sm-7">
+
+                <div id="weather-mob" class="weather">
+                    <div>
+                        <p class="location">location</p>
+                        <p class="description">Partly Cloudy</p>
+                    </div>
+                    <img class="icon" src="{{networkData.templatePath}}/static/icons/weather_partly_cloudy.svg">
+                    <p class="temp">21&deg;</p>
+                </div>
+
+
+
+
+                {% if articles[articleCount] %}                                                                
+                    {{this.render('partials/_single-article.twig', {
+                        article: articles[articleCount], 
+                        position: articleCount + 1, 
+                        imageSize: {width:630, height:400},
+                        containerClass: 'home-special home-special-tablet home-special-mobile'
+                    }) | raw}}
+                    {% set articleCount = (dev) ? articleCount : articleCount + 1 %}
+                {% endif %}
+            </div>
+
+
+            {% if articles[articleCount] %}
+            <div class="cold-xs-9 col-sm-2">
+
+
+                {% for i in 0..1 if articles[i] %}
+                    {{this.render('partials/_single-article.twig', {
+                        article: articles[articleCount], 
+                        position: articleCount + 1, 
+                        containerClass: 'card-sm card-sm-mobile'
+                    }) | raw}}
+                    {% set articleCount = (dev) ? articleCount : articleCount + 1 %}
+                    {% if i == 0 %}
+                        <div class="space40 visible-md-block visible-lg-block visible-sm-block"></div>
+                    {% endif %}
+                    <hr class="divide visible-xs-block"></hr>
+
+                {% endfor %}
+
+            </div><!-- .row-->
+            {% endif %}
+
+        </div>
+
+
+        <div class="row">
+                {% for i in 0..2 if articles[i] %}
+                    <div class="col-sm-3">
+                        {{this.render('partials/_single-article.twig', {
+                            article: articles[articleCount], 
+                            position: articleCount + 1, 
+                            containerClass: 'feature-side feature-side-tablet card-sm-mobile'
+                        }) | raw}}
+                        {% set articleCount = (dev) ? articleCount : articleCount + 1 %}
+                    </div>
+                    {% if i != 2 %}
+                        <hr class="divide visible-xs-block"></hr>
+                    {% endif %}
+
+                {% endfor %}
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</section><!-- .featured-slider-->
+<div class="container">

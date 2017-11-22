@@ -1,0 +1,13 @@
+.article-main__author {
+	color: #fff;
+	font-size: rem(16);
+}
+.article-main__author\@sm {
+	@media #{$media-mobile} {
+		text-align:left;
+		font-size: rem(10);
+	}
+}
+.article-main__header {
+	margin-bottom:51px;
+}

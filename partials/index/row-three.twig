@@ -1,0 +1,28 @@
+{% set sectionCount = (dev) ? articleCount : 0 %}
+
+<section>
+    <div class="row">
+        <div class="col-sm-9 section-header">
+            <p><a href="{{articles.link}}">View All</a></p>
+            <div class="hk">
+                <h2>{{ section }}</h2>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for i in 0..2 if articles.feed.articles[sectionCount] %}
+            {{this.render('../_single-article.twig', {
+                article: articles.feed.articles[sectionCount], 
+                imageSize: {width:300},
+                containerClass: 'col-sm-3 ' ~ cards
+            }) | raw}}
+            {% set sectionCount = (dev) ? articleCount : sectionCount + 1 %}
+            {% if i < 2 %}
+                <hr class="divide visible-xs-block">
+            {% endif %}
+        {% endfor %}
+
+    </div>
+</section>

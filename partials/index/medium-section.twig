@@ -1,0 +1,65 @@
+{% set sectionCount = (dev) ? articleCount : 0 %}
+
+<section class="row">
+    <div class="col-md-9 col-sm-9 section-header">
+        <p><a href="{{articles.link}}">View All</a></p>
+        <div class="hk">
+            <h2>{{ section }}</h2>
+            <p></p>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+        {% if articles.feed.articles[sectionCount] %}
+            {{this.render('../_single-article.twig', {
+                article: articles.feed.articles[sectionCount], 
+                imageSize: {width:409, height:530},
+                containerClass: 'home-feature-thin home-feature-thin-tablet home-feature-thin-mobile'
+            }) | raw}}
+            {% set sectionCount = (dev) ? articleCount : sectionCount + 1 %}
+        {% endif %}
+        <hr class="divide visible-xs-block space-only">        
+
+
+    </div>
+    <div class="col-md-2 col-sm-3">
+        {% set cardspace = ['', 'row-space'] %}
+        {% for i in 0..1 if articles.feed.articles[sectionCount] %}
+            {{this.render('../_single-article.twig', {
+                article: articles.feed.articles[sectionCount], 
+                imageSize: {width:300},
+                containerClass: 'card-sm card-sm-mobile ' ~ cardspace[i]
+            }) | raw}}
+            {% set sectionCount = (dev) ? articleCount : sectionCount + 1 %}
+            <hr class="divide visible-xs-block">
+
+        {% endfor %}
+
+    </div>
+
+
+    <div class="col-md-3 visible-xs-block visible-md-block visible-lg-block">
+
+        <div class="ad-square" style="margin-bottom:30px;">
+            <div class="card__announcement-image google_ad google_ad_mrec text-center" id='{{ ad }}'>
+                <script type='text/javascript'>
+                    googletag.cmd.push(function() { googletag.display('{{ ad }}'); });
+                </script>
+            </div>
+        </div>
+        
+        {% for i in 0..1 if articles.feed.articles[sectionCount] %}
+            {{this.render('../_single-article.twig', {
+                article: articles.feed.articles[sectionCount], 
+                imageSize: {width:300},
+                containerClass: 'feature-side feature-side-tablet card-sm-mobile'
+            }) | raw}}
+            {% set sectionCount = (dev) ? articleCount : sectionCount + 1 %}
+            {% if i == 0 %}
+                <hr class="divide">
+            {% endif %}
+
+        {% endfor %}
+    </div>    
+
+</section>

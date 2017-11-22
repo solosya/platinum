@@ -1,0 +1,40 @@
+body.channel, body.section, body.page {
+
+    .header {
+        div.hk {
+            display:flex;
+            h2 {
+                flex-grow: 0;
+                font-family: $font-family-sans-serif;
+                font-size: rem(36);
+                font-weight:300;
+                margin-bottom:25px;
+                color:color(red);
+                text-transform:uppercase;
+            }
+            p {
+                flex-grow: 1;
+                &:after {
+                    content: '';
+                    display:block;
+                    height:1px;
+                    background:color(lightgrey);
+                    width:99%;
+                    margin-top: 33px;
+                    margin-left: 7px;
+                }
+            }
+        }
+  
+    }
+    .ad-container{
+        margin-top: 50px;
+        
+        #adslot2{
+            margin-top: -30px;
+        }
+    }
+    .top-ad {
+            margin: 40px auto;
+        }
+}

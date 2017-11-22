@@ -1,0 +1,80 @@
+{
+    "module" : {
+        "debug" : {
+           "enabled" : true
+        },
+        "event" : {
+           "enabled" : true
+        },
+        "blog" : {            
+            "endUserAccess" : [
+
+                                "jobs",     "prop",     "events",
+                    "local",    "",         "",         "118",    
+                    "Shepp",    "",         "",         "1203",   
+                 "shepptest",   "",         "",         "972",   
+                      "UAT",    "",         ""
+                
+            ],
+            "extendedAttributes": [
+                {
+                    "name": "publishto",
+                    "label": "Publish to...",
+                    "type": "inputbox"
+                }
+            ]
+        },
+        "article": {
+    		"extendedAttributes": [
+    			{
+    				"name": "auction_date",
+    				"label": "Auction Date",
+    				"type": "inputbox",
+    				"datetimepicker": true
+    			},
+    			{
+    				"name": "listing_type",
+    				"label": "Listing Type",
+    				"type": "dropdown",
+    				"options": {
+    					"rent": "Rent",
+    					"buy": "Bye"
+    				}
+    			},
+    			{
+    				"name": "bedroom_count",
+    				"label": "Number of bedrooms",
+    				"type": "inputbox"
+    			},
+    			{
+    				"label": "Favorite Actors",
+    				"type": "checkbox",
+    				"name": "fav_actor",
+    				"options": {
+    					"tom_cruise": "Tom Cruise",
+    					"liz_hurley": "Liz Hurley"
+    				}
+    			},
+    			{
+    				"label": "Mother Tongue",
+    				"type": "radio",
+    				"name": "mother_tongue",
+    				"options": {
+    					"hindi": "Hindi",
+    					"english": "English"
+    				}
+    			},
+    			{
+    				"name": "big_description",
+    				"label": "Large Description",
+    				"type": "textarea"
+    			},
+    			{
+    				"name": "document",
+    				"label": "My Documents",
+    				"type": "file"
+    			}
+    		]
+    	}
+    }
+}

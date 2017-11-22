@@ -1,0 +1,24 @@
+{% set mastOverride = '' %}
+{% set imgOverride = '' %}
+
+{% if (networkData.title | lower) == 'country news' %}
+    {% set logo = 'country-news' %}
+    {% set imgOverride = 'country-logo' %}
+{% elseif (networkData.title | lower) == 'dairy news' %}
+    {% set logo = 'dairy-news' %}
+    {% set imgOverride = 'dairy-logo' %}
+{% else %}
+    {% set logo = 'shepp-news' %}
+{% endif %}
+
+{% set path = networkData.templatePath~'/static/images/'~logo~'-logo.svg'%}
+
+<div class="navigation-logo footer {{ imgOverride }}">
+    <a  class="navbar-brand" 
+        href="{{networkData.defaultBlogUrl}}" 
+        rel="Home" 
+        tabindex="-1" 
+        title="Home"
+        style="background-image:url({{path}})">
+    </a>
+</div>

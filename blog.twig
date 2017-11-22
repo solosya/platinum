@@ -1,0 +1,268 @@
+{% set blogInfo = _Blog.getBlog() %}
+{% set networkData = _Network.getNetworkData() %}
+
+{{ set(this, 'title', blogInfo.title) }}
+
+{% set limit = 20 %}
+{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
+{% set articles = articlesArr.articles %}
+{% set popularArticles = _Article.getPopularArticles({ limit: 5, sortBy: 'VIEWS', scope: 'blog' }) %}
+{# TODO: add interval: 48 back to popularArticles call when in production #}
+
+{% set profileImg = false %}
+{% if blogInfo.owner['media'] is defined and blogInfo.owner['media'] | length > 0 %}
+    {% set profileImg = _Media.getMediaUrl(blogInfo.owner['media'], 100, 100, {radius:'max', crop: 'thumb', gravity: 'face'}) %}
+{% endif %}
+
+{% set blogImage = false %}
+{% if blogInfo.media['cover']['path'] is not empty %}
+    {% set blogImage = blogInfo.media['cover']['path'] %}
+{% endif %}    
+
+<!-- used to index each article as we loop over throughout the template -->
+{% set articleCount = 0 %}
+{% set dev = _AppHelper.getApplicationEnv() == 'DEV' ? true : false %}
+
+{{this.registerJs("HomeController.listing();")}}
+{{this.registerJs("HomeController.blog();")}}
+
+{% set loginPath = 'https://syncaccess-mmg-sn.syncronex.com/mmg/sn/Account/LogOn?op=signin&returnurl=' ~ networkData.defaultBlogUrl %}
+
+
+<main id="main" class="site-main" role="main">
+    
+    <div class="container">
+
+        <section>
+            <div class="row header">
+                <div class="col-sm-9">
+                    <div class="bloggerImg">
+                        <img src="{{networkData.templatePath}}/static/images/megaphone.svg">
+                    </div>
+
+                    <div class="">
+                        <h2>{{this.title}}</h2>
+                        <p class="blogowner">by {{ blogInfo.owner['name'] }}</p>
+                        <div class="social-links">
+                            {% if blogInfo.settings['social']['facebook'] %}
+                                <a href="{{ blogInfo.settings['social']['facebook'] }}" class="facebook"></a>
+                            {% endif %}
+                            {% if blogInfo.settings['social']['twitter'] %}
+                                <a href="{{ blogInfo.settings['social']['twitter'] }}" class="twitter"></a>
+                            {% endif %}
+                            {% if blogInfo.settings['social']['instagram'] %}
+                                <a href="{{ blogInfo.settings['social']['instagram'] }}" class="instagram"></a>
+                            {% endif %}
+                            {% if blogInfo.settings['social']['vimeo'] %}
+                                <a href="{{ blogInfo.settings['social']['vimeo'] }}" class="vimeo"></a>
+                            {% endif %}
+                            {% if blogInfo.settings['social']['youtube'] %}
+                                <a href="{{ blogInfo.settings['social']['youtube'] }}" class="youtube"></a>
+                            {% endif %}
+                        </div>
+                        {% if _User.isGuest() %}
+                            <a href="{{ loginPath }}" class="follow forceLoginModal">Follow</a>
+                        {% endif %}
+                        {% if not _User.isGuest() and _User.getId() != userDetails.id %}
+                            {% set isUserFollowing = _User.isUserFollowing('user', userDetails.id)  %}
+                            <a href="javascript:void(0)" class="follow FollowProfileUser" data-guid="{{userDetails.guid}}" data-status="{% if isUserFollowing == 'TRUE' %}unfollow{% else %} follow {% endif %}">{% if isUserFollowing == 'TRUE' %} Unfollow {% else %} Follow {% endif %}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-9 col-md-6">
+                    
+                    {% if articles[articleCount] %}
+                        {{this.render('partials/_single-article.twig', {
+                            article: articles[articleCount],
+                            position: articleCount + 1,
+                            imageSize: {width:900},
+                            containerClass: 'home-feature-sm home-feature-tablet home-feature-mobile'
+                        }) | raw}}
+                        {% set articleCount = (dev) ? articleCount : articleCount + 1 %}
+                    {% endif %}
+
+
+                    {% for i in 0..1 if articles[articleCount] %}
+                        {{this.render('partials/_single-article.twig', {
+                            article: articles[articleCount],
+                            position: articleCount + 1,
+                            imageSize: {width:900},
+                            containerClass: 'card-rec card-rec-tablet card-rec-mobile row-space'
+                        }) | raw}}
+
+                        {% set articleCount = (dev) ? articleCount : articleCount + 1 %}
+                    {% endfor %}
+
+                </div>
+
+
+
+
+                <div class="col-sm-9 col-md-3">
+                
+                    <div class="ad-square addSpaceMobile visible-md-block visible-lg-block" style="margin-bottom:30px;">
+                        <div class="card__announcement-image google_ad google_ad_mrec text-center" id='div-gpt-ad-mrec-1'>
+                            <script type='text/javascript'>
+                                googletag.cmd.push(function() { googletag.display('div-gpt-ad-mrec-1'); });
+                            </script>
+                        </div>
+                    </div>
+
+                    <hr class="divide visible-xs-block">
+                    <hr class="divide15 visible-sm-block space-only">
+
+                    <div class="row two-cols">
+                        {% for i in 0..1 if articles[articleCount] %}
+                            <div class="col-sm-1 col-md-2">
+                                {{this.render('partials/_single-article.twig', {
+                                    article: articles[articleCount], 
+                                    imageSize: {width:160},
+                                    position: articleCount + 1,
+                                    containerClass: 'feature-side feature-side-tablet card-sm-mobile'
+                                }) | raw}}
+                                <hr class="divide visible-xs-block">
+
+                                <hr class="divide hidden-xs hidden-sm">
+                                <hr class="divide15 visible-sm-block space-only">
+
+                                {% set articleCount = (dev) ? articleCount : articleCount + 1 %}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+
+                    <div class="row two-cols">
+                       <div class="most-popular col-sm-1 col-md-2">
+                           <h2>Most popular</h2>
+
+                           {% for i in 0..4 if popularArticles[i] %}
+                               {{this.render('partials/_single-article.twig', {
+                                   article: popularArticles[i], 
+                                   imageSuppress: true, 
+                                   containerClass: 'card-popular'
+                               }) | raw}}
+                           {% endfor %}
+
+                        </div>
+
+                        <div class="col-sm-1 col-md-2">
+                            <div class="ad-square addSpaceMobile visible-sm-block" style="margin-bottom:30px;">
+                                <div class="card__announcement-image google_ad google_ad_mrec text-center" id='div-gpt-ad-mrec-3'>
+                                    <script type='text/javascript'>
+                                        googletag.cmd.push(function() { googletag.display('div-gpt-ad-mrec-3'); });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="row">
+            <div class="ad-container">
+                <div id='div-gpt-ad-leaderboard-2' class="google_ad google_ad_leaderboard">
+                    <script type='text/javascript'>
+                        googletag.cmd.push(function() { googletag.display('div-gpt-ad-leaderboard-2'); });
+                    </script>
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+
+            <div class="row">
+
+                {% for i in 0..2 if articles[articleCount] %}
+                    {{this.render('partials/_single-article.twig', {
+                        article: articles[articleCount], 
+                        imageSize: {width:300, height:160},
+                        position: articleCount + 1,
+                        containerClass: 'col-sm-3 card-sm-wide card-sm-wide-mobile'
+                    }) | raw}}
+                    {% set articleCount = (dev) ? articleCount : articleCount + 1 %}
+                    {% if i == 2 %}
+                        <hr class="divide visible-xs-block">
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+        </section>
+
+
+
+        <section>
+
+            <div class="row">
+                <div class="col-sm-6">
+
+                    {% for i in 0..2 if articles[articleCount] %}
+                        {{this.render('partials/_single-article.twig', {
+                            article: articles[articleCount],
+                            position: articleCount + 1,
+                            imageSize: {width:300},
+                            containerClass: 'card-rec card-rec-tablet card-rec-mobile row-space'
+                        }) | raw}}
+
+                        {% if i < 2 %}
+                            <div class="" style="margin-top:30px;"></div>
+                        {% endif %}
+
+                        {% set articleCount = (dev) ? articleCount : articleCount + 1 %}
+                    {% endfor %}
+
+                </div>
+
+
+
+
+                <div class="col-sm-3 addSpaceMobile">
+                
+                    <div class="ad-square visible-md-block visible-lg-block" style="margin-bottom:30px;">
+                        <div class="card__announcement-image google_ad google_ad_mrec text-center" id='div-gpt-ad-mrec-2'>
+                            <script type='text/javascript'>
+                                googletag.cmd.push(function() { googletag.display('div-gpt-ad-mrec-2'); });
+                            </script>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <div class="col-sm-12">
+             <section class="" style="">
+                <div class="row">
+                    <div class="ajaxArticles index clearfix"
+                         data-offset="{{limit}}"
+                         data-articlecount="10"
+                         data-containerclass="col-sm-4 card-sm"
+                         data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}">
+                     </div>
+                    <a class="loadMoreArticles" href="#">More</a>
+                </div>
+
+                {% set noDataCls = 'hide' %}
+                {% if articles|length == 0 %}
+                    {% set noDataCls = '' %}
+                 {% endif %}
+                <div class="row text-center has-margin-bottom-20 has-margin-top-20 {{noDataCls}} NoArticlesMsg">
+                    <p class="no-data text-center">No articles found.</p>  
+                </div>
+            </section>
+        </div>
+
+
+    </div>
+
+
+</main><!-- .site-main -->

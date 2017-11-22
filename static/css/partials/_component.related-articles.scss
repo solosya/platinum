@@ -1,0 +1,21 @@
+.related-articles {
+	margin-bottom: 86px;
+}
+.related-articles__header {
+	font-family:$font-family-serif;
+	font-size: rem(36);
+	margin:auto;
+	text-align:center;
+	color:#fff;
+	margin-top:130px;
+}
+
+.related-articles__header\@sm {
+	@media #{$media-mobile} {
+		font-size:rem(18);
+	}
+}
+
+.related-articles__articles {
+	margin-top: 66px;
+}

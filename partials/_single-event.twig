@@ -1,0 +1,113 @@
+{% import "quotes.twig" as quotes %}
+
+{% set imageSuppress = imageSuppress is defined and imageSuppress == 'true' ? 'true' : 'false'  %}
+{% set swap = swap is defined and swap == 'false' ? '' : 'swap'  %}
+{% set lightbox = ''  %}
+{% set eventImg = '' %}
+
+{% if behaviour is defined %} 
+    {% if behaviour == 'noclick' %}
+        {% set event = event | merge({'url' : 'javascript: void(0)'}) %}
+    {% elseif behaviour == 'lightbox' %}
+        {% set lightbox = behaviour %}
+    {% endif %}
+{% endif %}
+
+
+{% set imgWidth = 0 %}
+{% set imgHeight = 0 %}
+{% if imageSize is defined %}
+    {% set imgWidth = (imageSize.width is defined) ? imageSize.width : 0 %}
+    {% set imgHeight = (imageSize.height is defined) ? imageSize.height : 0 %}
+{% endif %}
+
+
+{% set placeholder   = 'https://placeholdit.imgix.net/~text?txtsize=33&txt=Loading&w='~imgWidth~'&h='~imgHeight~'' %}
+{% set promotedClass = (event.isPromoted) ? 'ad_icon' : '' %}
+{% set hasMedia      = (event.media | length > 0) ? 'withImage__content': 'without__image' %}
+{% set startDay      = _AppHelper.getDateTimeBasedOnTimezone(event.startDate, 'd') %}
+{% set startMonth    = _AppHelper.getDateTimeBasedOnTimezone(event.startDate, 'M') %}
+{% set startTime     = _AppHelper.getDateTimeBasedOnTimezone(event.startDate, 'g:ia') %}
+{% set eventTitle    = quotes.smarten(titleTruncateLength is defined ? event.title | truncate(titleTruncateLength) : event.title)  %}
+{% set figureClass   = event.media['type'] == 'video' ? 'video' : '' %}
+
+{% set publishDate = (event.publishDate is defined) ? event.publishDate : event.publishedDate %}
+{% set publishDateTime = (event.publishDateTime is defined) ? event.publishDateTime : event.publishedDateTime %}
+
+{% set publishDate = _AppHelper.getDefaultTimezoneDateTime(publishDate, 'F Y') %}
+
+{% set publishedAgo = _AppHelper.getSecondsSincePublished(publishDateTime) %}
+
+{% if publishedAgo < 86400 %}
+    {% set publishDate = _AppHelper.getRelativeTime(publishDateTime) ~ " ago" %}
+{% endif %}
+
+
+{% set startDate = _AppHelper.getDateTimeBasedOnTimezone(event.startDate, 'j M') %}
+{% set fullStartDate = _AppHelper.getDateTimeBasedOnTimezone(event.startDate, 'j F') %}
+{% set endDate = _AppHelper.getDateTimeBasedOnTimezone(event.endDate, 'j M') %}
+
+{% set startTime = _AppHelper.getDateTimeBasedOnTimezone(event.startDate, 'g:ia') %}
+{% set endTime = _AppHelper.getDateTimeBasedOnTimezone(event.endDate, 'g:ia') %}
+
+
+<div class="{{containerClass}}" data-title="{{ eventTitle | raw }}">
+    {% set eventImgSmall = _Media.getMediaUrl(event.media[0], 500, 500, {'crop': 'fill', 'gravity': 'faces'} ) %}
+    {% set eventImg = _Media.getMediaUrl(event.media[0], imgWidth, imgHeight, {'crop': 'fill', 'gravity': 'faces'} ) %}
+
+    <a  href="{{event.url}}" 
+        class="{{swap}} card event {{hasMedia}}" 
+        data-id="{{event.eventId}}" 
+        data-guid="{{event.eventGuid}}" 
+        data-position="{{position}}" 
+        data-social="0"
+        data-event-image="{{eventImg}}" 
+        data-event-text="{{Helper.htmlToText(event.title, -1) | raw | escape('html')}}">
+
+        <article class="{{lightbox}} {{figureClass}}">
+            
+
+            {% if (hasMedia == 'withImage__content') %}
+                <figure class="{{figureClass}}">
+                    <picture>
+                        <source media="(max-width: 620px)" srcset="{{eventImgSmall}}">
+                        <img class="img-responsive" src="{{eventImg}}" data-original="{{eventImg}}"  {% if eventImg is not empty %} style="background-image:url('{{placeholder}}');" {%endif%}>
+                    </picture>
+                </figure>
+            {% endif %}
+
+
+            <div class="content">
+                <div class="category">Events</div>
+                
+                <h2 class="{{figureClass}}">{{ quotes.smarten(event.title) }}</h2>
+                
+                <p class="excerpt">{{ quotes.smarten(event.excerpt | raw) }}</p>
+               
+                <div class="event-time">
+                    {% set difference = date(event.endDate).diff(date(event.startDate)) %}
+                    {% set leftDays = difference.days %}
+                    {% if leftDays > 0 %}
+                        <p class="date">{{ startDate }} - {{ endDate }}</p>
+                    {% else %}
+                        <p class="date">{{ fullStartDate }}</p>
+                        <p class="time">{{ startTime }} - {{ endTime }} </p>
+                    {% endif %}
+                </div>
+
+                <div class="author">
+                    <img src="{{profileImg}}" class="img-circle">
+                    <p>{{ event.createdBy['name'] }}</p>
+                    <time datetime="{{publishDate}}">{{publishDate}}</time>
+                </div>
+
+                <time datetime="{{startDate}}">{{startDate}}</time>
+
+            </div>
+
+
+
+
+        </article>
+    </a>
+</div>

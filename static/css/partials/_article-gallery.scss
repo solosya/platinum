@@ -1,0 +1,52 @@
+body.layout-article-gallery {
+	background:color(galleryback);
+}
+
+body.article {
+
+
+	.gallery {
+
+		article.article-main {
+			margin-bottom:0;
+
+			.gallery-row {
+				padding-top:62px;
+				background:color(galleryback);
+
+
+
+				figure {
+
+					> figcaption {
+						 > p {
+						 	font-size: rem(12);
+						 	font-family:$font-family-serif;
+						 	float:none;
+						 	line-height:1.33;
+						 	text-align:center;
+							color:white;
+						 }
+						 > p.count {
+							margin-top:7px;
+						 }
+
+					}
+				}
+				.owl-thumbs {
+					margin-top:30px;
+					img.owl-thumb-item {
+						width:152px;
+						height:95px;
+						margin-right:10px;
+					}
+
+				}
+
+
+			}
+
+		}
+	}
+	
+}

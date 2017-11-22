@@ -1,0 +1,71 @@
+{# {% import "partials/quotes.twig" as quotes %} #}
+{{ set(this, 'title', article.title) }}
+{{ this.registerLinkTag({rel:'amphtml', href:_AppHelper.getServerUrl(false)~'?amp=1'}) }}
+
+{# {% set blogInfo = _Blog.getBlog() %} #}
+{% set networkData = _Network.getNetworkData() %}
+
+{# 
+
+{% set articleImg = false %}
+{% if article.media|length > 0 %}
+    {% set articleImg = _Media.getMediaUrl(article.media[0],1094, 515, {'crop': 'fill', 'gravity': 'auto'} ) %}
+{% endif %}
+
+{% set publishDate = _AppHelper.getDefaultTimezoneDateTime(article.publishDate, 'F, Y') %}
+
+{% set relatedArticles = _Article.getPopularArticles({ blogId: article.blog.id, limit: 3, excludeArticleIds : [article.id] }) %}
+{% set recentArticles = _Article.getRecentArticles({ limit: 5, excludeArticleIds : [article.id] }) %}
+
+{% set testCount = 0 %} #}
+
+
+<main id="main" class="" role="main">
+    <div class="boxes boxes--2">
+        <div class="boxes__item boxes__item@sm boxes__item--1"></div>
+        <div class="boxes__item boxes__item@sm boxes__item--2"></div>
+    </div>
+
+
+
+
+    <div class="banner banner--article">
+        <img class="banner__img" src="{{networkData.templatePath}}/static/images/murray.jpg">
+        <div class="boxes boxes--1 boxes--1@sm">
+            <div class="boxes__item boxes__item@sm boxes__item--1 boxes__item--1@sm"></div>
+            <div class="boxes__item boxes__item@sm boxes__item--2"></div>
+        </div>
+    </div>
+
+
+    <div class="container content content@sm content--contact content--contact@sm">
+
+        <article class="article-main">
+            <div class="row contact contact@sm align-center">
+                <div class="col-md-offset-2 col-md-8">
+                    <h1 class="content__headline content__headline content__headline--contact@sm">CONTACT</h1>
+                    <p class="contact__p contact__p@sm">Nam scelerisque, ipsum sit amet molestie tincidunt, dolor purus mattis lorem, id molestie lectus nunc sit , 
+                        ipsum sit amet molestie tincidunt, dolor purus mattis lorem, id molestie lectus nunc sit amet urna. </p>
+
+                    <p class="contact__p contact__p@sm">namename@email.com.au</p>
+                </div>
+            </div>
+
+
+            <div class="row align-center margin-top-65">
+                <div class="col-md-offset-2 col-md-8 contact--last contact--last@sm">
+                    <h1 class="content__headline content__headline content__headline--contact@sm">ABOUT</h1>
+                    <p class="contact__p contact__p@sm">Nam scelerisque, ipsum sit amet molestie tincidunt, dolor purus mattis lorem, id molestie lectus nunc sit 
+                    amet ur Lecte nam facearum faccus eos untotatur ad et, culparc iissiti deles ut hilluptate que conseri 
+                    dolut volentur? Dolenitem. Ces dendant alici ullestis el ipitatin pelendemqui tem harum nimus et aribus, 
+                    int estia vellatur, que sum facidit atemquiatur aut voles ipsunte velibusdae. Sequiatur? Epratios nemolor 
+                    epudicil maiosam quam, in perumquiat od quia consequi dipit dolupta tionesedios core repero ma consequam 
+                    fuga. Ficil ima qui odipsunt delestis doluptatur, utat et volo </p>
+                </div>
+            </div>
+        </article>
+
+
+    </div>
+</main><!--site-main-->
+

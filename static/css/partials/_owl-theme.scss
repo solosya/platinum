@@ -1,0 +1,93 @@
+.owl-shep-theme.owl-carousel {
+  height:100%;
+  position:relative;
+  .owl-stage-outer {
+      height:100%;
+      position:relative;
+      .owl-stage {
+        height:100%;
+        position:relative;
+       .owl-item.active {
+        height:100%;
+        position:relative;
+       }
+      }
+  }
+
+}
+
+
+.owl-shep-theme .owl-nav {
+    position:absolute;
+    top: 230px;
+    margin-left: -50px;
+    width: 111%;
+  -webkit-tap-highlight-color: transparent; }
+  .owl-shep-theme .owl-nav .owl-next {
+    background-image: url('../icons/gallery-arrow-right.svg');
+    float:right;
+  }
+  .owl-shep-theme .owl-nav .owl-prev {
+    background-image: url('../icons/gallery-arrow-left.svg');
+  }
+
+
+  .owl-thumbs {
+    overflow:hidden;
+    // overflow-y:hidden;
+    white-space:nowrap;
+    .owl-thumb-item {
+      &.active {
+        border:4px solid rgba(255,255,255,.5);
+      }
+    }
+  }
+
+  .owl-shep-theme .owl-nav [class*='owl-'] {
+    color: #FFF;
+    font-size: 14px;
+    margin: 5px;
+    padding: 4px 7px;
+    // background:green;
+    background-repeat: no-repeat;
+    background-size: contain;
+    // background: red;
+    height:27px;
+    width:14px;
+    display: inline-block;
+    cursor: pointer; }
+
+    .owl-shep-theme .owl-nav [class*='owl-']:hover {
+      background: #869791;
+      color: #FFF;
+      text-decoration: none; }
+  .owl-shep-theme .owl-nav .disabled {
+    opacity: 0.5;
+    cursor: default; }
+
+
+
+.owl-shep-theme .owl-dots {
+  text-align: center;
+  -webkit-tap-highlight-color: transparent; 
+  z-index: 1000000;
+  position: relative;
+  top: -250px;
+
+
+}
+  .owl-shep-theme .owl-dots .owl-dot {
+    display: inline-block;
+    zoom: 1;
+    *display: inline; }
+    .owl-shep-theme .owl-dots .owl-dot span {
+      width: 10px;
+      height: 10px;
+      margin: 5px 7px;
+      background: #D6D6D6;
+      display: block;
+      -webkit-backface-visibility: visible;
+      transition: opacity 200ms ease;
+      border-radius: 30px; }
+    .owl-shep-theme .owl-dots .owl-dot.active span, .owl-shep-theme .owl-dots .owl-dot:hover span {
+      background: #869791; }
