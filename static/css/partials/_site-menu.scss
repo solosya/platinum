@@ -39,7 +39,7 @@
 
 .site-menu {
     float:right;
-    clear:both;
+    // clear:both;
 }
 
 .site-menu__search {
@@ -135,7 +135,7 @@
     list-style: none;
     color: #fff;
     height: 65px;
-    padding-top: 47px;
+    padding-top: 57px;
     white-space:nowrap;
     @media screen and (max-width: $header-break){
         height:auto;
@@ -157,7 +157,6 @@
 
     .site-menu__container {
         margin:0;
-        background:black;
         padding:0;
     }
 
@@ -219,7 +218,7 @@
         font-size:rem(16);
         height:100%;
         display:block;
-        color: white;
+        // color: white;
         text-transform:uppercase;
         font-weight:normal;
         position: relative; 
@@ -414,6 +413,13 @@
     }
     .site-menu--open {
         display:block;
+
+        .site-menu__container {
+            background:black;
+        }
+        .site-menu__link {
+            color:white;
+        }
     }
     .site-menu__item {
         font-size: rem(12);

@@ -108,14 +108,13 @@ $('document').ready(function() {
 
     //On Scroll
     pageWindow.scroll(function() {
-        // console.log('scrolling');
         var direction = 'down';
         var scroll = pageWindow.scrollTop();
         if (scroll < scrollMetric[0]) {
             direction = 'up';
         }
         scrollMetric = [scroll, direction];
-        adScroll();
+        // adScroll();
         // console.log(scrollMetric);
     });
 
@@ -217,8 +216,8 @@ $('document').ready(function() {
         pagination: true,
         dots: true,
         nav: false,
-        // autoplay: true,
-        // loop: true,
+        autoplay: true,
+        loop: true,
     });   
 
  $(".owl-dots").appendTo("body");

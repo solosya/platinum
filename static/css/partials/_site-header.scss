@@ -41,8 +41,4 @@
         position: fixed;
         top: 0;
     }
-
-    @media #{$media-iPad} {
-        height:auto;
-    }
 }

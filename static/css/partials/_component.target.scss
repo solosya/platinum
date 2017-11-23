@@ -1,9 +1,15 @@
 .targets {
 	position:relative;
 	margin-top:35px;
+	height:100px;
+}
+.targets\@sm {
+	height:auto;
 }
 
 .target {
+	height:100%;
+	padding-top:30px;
 	&:nth-child(1) {
 		width:31%;
 		border-right: solid 1px color(light);
@@ -17,7 +23,8 @@
 	}
 }
 .target\@sm {
-
+	height:auto;
+	padding-top:0;
 	@media #{$media-mobile} {
 		width:100%;
 		border:none;

@@ -25,6 +25,7 @@
 .navigation-logo__img{}
 .navigation-logo__img--platinum {
     height:87px;
+    margin-top:20px;
 }
 .navigation-logo__img--platinum\@sm {
     @media #{$media-mobile} {
