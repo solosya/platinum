@@ -5,6 +5,12 @@
    	text-align: center;
 	z-index:1;
 }
+
+.content\@sm {
+    padding-top: 370px;
+}
+
+
 .content--article {
     padding-top: 440px;
 }
@@ -26,6 +32,7 @@
 	font-family:$font-family-serif;
 	font-size:rem(80);
 	text-transform:uppercase;
+	line-height:1.2;
 }
 .content__headline\@sm {
 	@media #{$media-mobile} {
@@ -70,6 +77,11 @@
 	font-weight:400;
 	font-size:rem(26);
 	text-transform:uppercase;
+}
+.content__tagline\@md {
+	@media #{$media-iPad} {
+		width:auto;
+	}
 }
 .content__tagline\@sm {
 	@media #{$media-mobile} {

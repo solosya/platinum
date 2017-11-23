@@ -6,6 +6,12 @@
 	overflow-x:hidden;
 	@include gradientafter();
 }
+.banner\@sm {
+	@media #{$media-mobile} {
+		height:355px;
+	}
+}
+
 .banner--article{
 	height:543px;
 	overflow: unset;

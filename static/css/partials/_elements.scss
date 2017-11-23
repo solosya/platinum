@@ -1,0 +1,67 @@
+html {
+    font-size:100%;
+}
+ul {
+    padding:0;
+}
+main {
+    width:100%;
+    position:relative;
+    overflow:hidden;
+}
+h1, h2 {
+    margin:0;
+    font-weight:300;
+}
+p {
+    margin:0;
+}
+body{
+    overflow-y:scroll;
+    -webkit-overflow-scrolling:touch;
+    color: color(dark);
+    background: #000;
+    font-family: $font-family-sans-serif;
+
+    @media screen and (max-width: $sm-break){
+        overflow-x: hidden;
+    }
+}
+fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    min-width: 0;
+
+    label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+}
+figcaption{
+    margin-top: 10px;
+
+    @media screen and (max-width: $sm-break){
+        float: left;
+        margin-bottom: 30px;
+    }
+    
+    > p {
+        font-size: rem(12.5);
+        color: #6c6c6c;
+        font-style: italic;
+        font-family: $font-family-serif;
+        float: left;
+
+        &.credit{
+            font-style: normal;
+            float: right;
+
+            @media screen and (max-width: $sm-break){
+                float: left;
+            }
+        }
+    }
+}

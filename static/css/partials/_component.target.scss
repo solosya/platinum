@@ -4,7 +4,9 @@
 	height:100px;
 }
 .targets\@sm {
-	height:auto;
+	@media #{$media-mobile} {
+		height:auto;
+	}
 }
 
 .target {

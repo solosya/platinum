@@ -22,6 +22,7 @@
 
 
 //elements
+@import "elements";
 
 //objects
 
@@ -37,9 +38,10 @@
 @import "component.target";
 @import "component.related-articles";
 @import "component.article";
+@import "component.index-articles";
 
 
-//Article page **** refacgtor ****
+//Article page **** refactor ****
 @import "article-content";
 
 

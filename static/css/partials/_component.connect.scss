@@ -60,9 +60,15 @@
 	line-height:1.58;
 	margin:auto;
 }
+.connect__text\@md {
+	@media #{$media-desktop-down} {
+		width:auto;
+		font-size:rem(20);
+	}
+}
+
 .connect__text\@sm {
 	@media #{$media-mobile} {
-		width:auto;
 		font-size:rem(14);
 	}
 }
