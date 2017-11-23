@@ -2,28 +2,27 @@
 {{ set(this, 'title', article.title) }}
 {{ this.registerLinkTag({rel:'amphtml', href:_AppHelper.getServerUrl(false)~'?amp=1'}) }}
 
-{% set blogInfo = _Blog.getBlog() %}
+{# {% set blogInfo = _Blog.getBlog() %} #}
 {% set networkData = _Network.getNetworkData() %}
 
 
 
-{% set articleImg = false %}
+{# {% set articleImg = false %}
 {% if article.media|length > 0 %}
     {% set articleImg = _Media.getMediaUrl(article.media[0],1094, 515, {'crop': 'fill', 'gravity': 'auto'} ) %}
 {% endif %}
+ #}
+{# {% set publishDate = _AppHelper.getDefaultTimezoneDateTime(article.publishDate, 'F, Y') %} #}
 
-{% set publishDate = _AppHelper.getDefaultTimezoneDateTime(article.publishDate, 'F, Y') %}
-
-{% set relatedArticles = _Article.getPopularArticles({ blogId: article.blog.id, limit: 3, excludeArticleIds : [article.id] }) %}
+{# {% set relatedArticles = _Article.getPopularArticles({ blogId: article.blog.id, limit: 3, excludeArticleIds : [article.id] }) %} #}
 {% set recentArticles = _Article.getRecentArticles({ limit: 5, excludeArticleIds : [article.id] }) %}
 
-{% set testCount = 0 %}
 
 
 <main id="main" class="" role="main">
     <div class="boxes boxes--2 boxes--article">
-        <div class="boxes__item boxes__item--1"></div>
-        <div class="boxes__item boxes__item--2"></div>
+        <div class="boxes__item boxes__item@sm boxes__item--1"></div>
+        <div class="boxes__item boxes__item@sm boxes__item--2"></div>
     </div>
 
     <div class="banner banner--article">
