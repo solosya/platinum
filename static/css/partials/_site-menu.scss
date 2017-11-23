@@ -413,7 +413,8 @@
     }
     .site-menu--open {
         display:block;
-
+        clear:both;
+        
         .site-menu__container {
             background:black;
         }
