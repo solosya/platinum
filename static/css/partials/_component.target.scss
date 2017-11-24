@@ -18,6 +18,8 @@
 	}
 	&:nth-child(2) {
 		width:41%;
+		padding-left: 40px;
+		padding-right: 60px;
 		border-right: solid 1px color(light);
 	}
 	&:nth-child(3) {
@@ -25,9 +27,9 @@
 	}
 }
 .target\@sm {
-	height:auto;
-	padding-top:0;
 	@media #{$media-mobile} {
+		height:auto;
+		padding-top:0;
 		width:100%;
 		border:none;
 		margin-bottom:60px;
@@ -55,7 +57,7 @@
 	line-height: 1.15;
 	letter-spacing: 1.3px;
 	text-transform: uppercase;
-	font-weight:400;
+	font-weight:$light;
 }
 .target__text\@sm {
 	@media #{$media-mobile} {

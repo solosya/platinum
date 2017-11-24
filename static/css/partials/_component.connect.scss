@@ -17,7 +17,7 @@
 .connect__headline {
 	margin-top: 80px;
 	font-size:rem(60);
-	font-weight:300;
+	font-weight:$light;
 	text-transform: uppercase;
 }
 .connect__headline\@sm {
@@ -30,7 +30,7 @@
 	font-family:$base-font-family;
 	margin-top:10px;
 	font-size:rem(24);
-	font-weight:300;
+	font-weight:$light;
 	text-transform: uppercase;
 }
 .connect__date\@sm {
@@ -43,7 +43,7 @@
 .connect__subhead {
 	margin-top:60px;
 	font-size:rem(24);
-	font-weight:500;
+	font-weight:$reg;
 	text-transform: uppercase;
 }
 .connect__subhead\@sm {
@@ -56,7 +56,7 @@
 	width:853px;
 	margin-top:20px;
 	font-size:rem(24);
-	font-weight:200;
+	font-weight:$thin;
 	line-height:1.58;
 	margin:auto;
 }
@@ -76,7 +76,7 @@
 .connect__announce {
 	margin-top:26px;
 	font-size:rem(18);
-	font-weight:400;
+	font-weight:$light;
 }
 .connect__announce\@sm {
 	@media #{$media-mobile} {
