@@ -34977,14 +34977,14 @@ $('document').ready(function() {
     }), 750);
 
 
-    // $("#owl-thumbnails").owlCarousel({
-    //     items: 1,
-    //     pagination: true,
-    //     dots: true,
-    //     nav: false,
-    //     autoplay: true,
-    //     loop: true,
-    // });   
+    $("#owl-thumbnails").owlCarousel({
+        items: 1,
+        pagination: true,
+        dots: true,
+        nav: false,
+        autoplay: true,
+        loop: true,
+    });   
 
  $(".owl-dots").appendTo("body");
 
