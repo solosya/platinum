@@ -36,9 +36,11 @@
 }
 .content__headline\@sm {
 	@media #{$media-mobile} {
-		font-size:rem(34);
-		line-height: 0.93;
+		font-size:rem(38);
+		line-height: 0.96;
 		letter-spacing: 0.8px;
+		width: 250px;
+		margin: 0 auto;
 	}
 }
 
@@ -86,10 +88,10 @@
 .content__tagline\@sm {
 	@media #{$media-mobile} {
 		margin-top: 20px;
-		width:70%;
-		line-height: 1.32;
-		letter-spacing: 0.4px;
-		font-size:rem(11);
+		width:286px;
+		line-height: 1.43;
+		letter-spacing: 0.8px;
+		font-size:rem(15);
 	}
 }
 
@@ -100,7 +102,7 @@
 }
 .content__sub-head\@sm {
 	@media #{$media-mobile} {
-		font-size: rem(18);
+		font-size: rem(22);
 		margin-top: 90px;
 	}
 }
