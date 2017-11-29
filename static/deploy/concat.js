@@ -31366,8 +31366,6 @@ var extend = function(child, parent) { for (var key in parent) { if (hasProp.cal
     //Follow/Unfollow a user or writer
     $.fn.followUser = function (options) {
 
-        console.log('whoo');
-
         var defaults = {
             'onSuccess': function () {},
             'onError': function () {},
@@ -34984,6 +34982,7 @@ $('document').ready(function() {
         nav: false,
         autoplay: true,
         loop: true,
+        autoplayTimeout: 9000
     });   
 
  $(".owl-dots").appendTo("body");
