@@ -34982,6 +34982,7 @@ $('document').ready(function() {
         nav: false,
         autoplay: true,
         loop: true,
+        autoplayTimeout: 9000
     });   
 
  $(".owl-dots").appendTo("body");
