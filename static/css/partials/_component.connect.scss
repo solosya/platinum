@@ -59,6 +59,7 @@
 	font-weight:$thin;
 	line-height:1.58;
 	margin:auto;
+	letter-spacing: 0.8px;
 }
 .connect__text\@md {
 	@media #{$media-desktop-down} {
@@ -77,6 +78,7 @@
 	margin-top:26px;
 	font-size:rem(18);
 	font-weight:$light;
+	letter-spacing:0.4px;
 }
 .connect__announce\@sm {
 	@media #{$media-mobile} {
