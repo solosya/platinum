@@ -25,6 +25,7 @@
 @import "elements";
 
 //objects
+@import "object.media";
 
 //components
 @import "component.site-logo";
@@ -39,6 +40,8 @@
 @import "component.related-articles";
 @import "component.article";
 @import "component.index-articles";
+@import "component.spinner";
+@import "component.leaderboard";
 
 
 //Article page **** refactor ****
