@@ -19,6 +19,7 @@
 	font-size:rem(60);
 	font-weight:$light;
 	text-transform: uppercase;
+	letter-spacing: 1px;
 }
 .connect__headline\@sm {
 	@media #{$media-mobile} {
@@ -32,11 +33,13 @@
 	font-size:rem(24);
 	font-weight:$light;
 	text-transform: uppercase;
+	letter-spacing: 1px;
 }
 .connect__date\@sm {
 	@media #{$media-mobile} {
 		margin-top:0;
 		font-size:rem(16);
+		letter-spacing: 1px;
 	}
 }
 
@@ -45,6 +48,7 @@
 	font-size:rem(24);
 	font-weight:$reg;
 	text-transform: uppercase;
+	letter-spacing: 1px;
 }
 .connect__subhead\@sm {
 	@media #{$media-mobile} {
@@ -59,7 +63,7 @@
 	font-weight:$thin;
 	line-height:1.58;
 	margin:auto;
-	letter-spacing: 0.8px;
+	letter-spacing: 1px;
 }
 .connect__text\@md {
 	@media #{$media-desktop-down} {
