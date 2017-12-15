@@ -7,11 +7,11 @@
 
 
 
-{# {% set articleImg = false %}
+{% set articleImg = false %}
 {% if article.media|length > 0 %}
     {% set articleImg = _Media.getMediaUrl(article.media[0],1094, 515, {'crop': 'fill', 'gravity': 'auto'} ) %}
 {% endif %}
- #}
+
 {# {% set publishDate = _AppHelper.getDefaultTimezoneDateTime(article.publishDate, 'F, Y') %} #}
 
 {# {% set relatedArticles = _Article.getPopularArticles({ blogId: article.blog.id, limit: 3, excludeArticleIds : [article.id] }) %} #}
@@ -26,7 +26,7 @@
     </div>
 
     <div class="banner banner--article">
-        <img class="banner__img" src="{{networkData.templatePath}}/static/images/murray.jpg">
+        <img class="banner__img" src="{{articleImg}}">
         <div class="boxes boxes--1 boxes--1@sm">
             <div class="boxes__item boxes__item@md boxes__item@sm boxes__item--1"></div>
             <div class="boxes__item boxes__item@md boxes__item@sm boxes__item--2"></div>
@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-sm-offset-2 col-sm-8 article-main__header">
                     <h1 class="content__headline content__headline--article content__headline--article@sm">{{ quotes.smarten(article.title) }}</h1>
-                    <p class="article-main__author article-main__author@sm" href="{{_AppHelper.getUserProfileUrl(article.createdBy['username'])}}"><span>By</span> {{ article.createdBy['displayName'] }}</p>
+                    {# <p class="article-main__author article-main__author@sm" href="{{_AppHelper.getUserProfileUrl(article.createdBy['username'])}}"><span>By</span> {{ article.createdBy['displayName'] }}</p> #}
                 </div>
             </div>
 
