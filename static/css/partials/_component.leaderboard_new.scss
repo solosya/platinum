@@ -19,28 +19,21 @@
 
 }
 
-.leaderboard-explain {
-	margin-bottom:40px;;
-}
-
-.leaderboard-explain__text {
-	font-size: rem(15);
-	color:color(textgrey);
-	margin-bottom:5px;
-}
-
 .leaderboard-list {
 
 }
-
 .leaderboard-list__item {
+	display:inline-block;
 	list-style:none;
 	font-size: rem(16);
 	color:color(textgrey);
 	line-height: 1.5;
 	letter-spacing: 1px;
-	margin-bottom:8px;
+	margin-bottom: 15px;
 
+}
+
+.leaderboard-list__item--name {
 	&:before {
 	    content: counter(leaderboard-counter);
 	    counter-increment: leaderboard-counter;
@@ -51,20 +44,26 @@
 	    position: relative;
 	    top: 2px;
 	}
+
 }
 
+.leaderboard-list__outer {
+	list-style:none;
+	border-bottom: 1px solid white;
+	margin-bottom: 20px;
+}
 
 .leaderboard-list--left {
 
 }
 
-.leaderboard-list__item--left {
-	color:white;
-	padding-bottom:20px;
-	margin-bottom:26px;
-	font-weight:600;
-	border-bottom: 1px solid rgba(237,237,237,.5);
-	&:before {
-		color:white;
-	}
-}
+// .leaderboard-list__item--left {
+// 	color:white;
+// 	padding-bottom:20px;
+// 	margin-bottom:26px;
+// 	font-weight:600;
+// 	border-bottom: 1px solid rgba(237,237,237,.5);
+// 	&:before {
+// 		color:white;
+// 	}
+// }

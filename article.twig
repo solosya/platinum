@@ -62,17 +62,19 @@
                 </div>
 
                 <div class="row related-articles__articles">
-
-
-                    {% for i in 0..2 if recentArticles[i] %}
-                        <div class="col-sm-offset-1 col-sm-3 no-padding">
-                            {{this.render('partials/_single-article.twig', {
-                                article: recentArticles[i], 
-                                imageSize: {width:301, height:300},
-                                containerClass: 'card-1__desktop card-2__mobile'
-                            }) | raw}}
+                    <div class="col-sm-offset-3">
+                        <div class="row">
+                            {% for i in 0..1 if recentArticles[i] %}
+                                <div class="col-sm-offset-1 col-sm-3 no-padding">
+                                    {{this.render('partials/_single-article.twig', {
+                                        article: recentArticles[i], 
+                                        imageSize: {width:301, height:300},
+                                        containerClass: 'card-1__desktop card-2__mobile'
+                                    }) | raw}}
+                                </div>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
+                    </div>
                 </div>
 
             </div>

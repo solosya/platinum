@@ -1,0 +1,545 @@
+{# {% import "partials/quotes.twig" as quotes %} #}
+{{ set(this, 'title', article.title) }}
+{{ this.registerLinkTag({rel:'amphtml', href:_AppHelper.getServerUrl(false)~'?amp=1'}) }}
+
+{# {% set blogInfo = _Blog.getBlog() %} #}
+{% set networkData = _Network.getNetworkData() %}
+
+{# 
+
+{% set articleImg = false %}
+{% if article.media|length > 0 %}
+    {% set articleImg = _Media.getMediaUrl(article.media[0],1094, 515, {'crop': 'fill', 'gravity': 'auto'} ) %}
+{% endif %}
+
+{% set publishDate = _AppHelper.getDefaultTimezoneDateTime(article.publishDate, 'F, Y') %}
+
+{% set relatedArticles = _Article.getPopularArticles({ blogId: article.blog.id, limit: 3, excludeArticleIds : [article.id] }) %}
+{% set recentArticles = _Article.getRecentArticles({ limit: 5, excludeArticleIds : [article.id] }) %}
+
+{% set testCount = 0 %} #}
+
+
+<main id="main" class="" role="main">
+    <div class="boxes boxes--2">
+        <div class="boxes__item boxes__item@md boxes__item@sm boxes__item--1"></div>
+        <div class="boxes__item boxes__item@md boxes__item@sm boxes__item--2"></div>
+    </div>
+
+
+
+
+    <div class="banner banner--article">
+        <img class="banner__img" src="{{networkData.templatePath}}/static/images/leaderboard-banner.jpg">
+        <div class="boxes boxes--1 boxes--1@sm">
+            <div class="boxes__item boxes__item@md boxes__item@sm boxes__item--1 boxes__item--1@sm"></div>
+            <div class="boxes__item boxes__item@md boxes__item@sm boxes__item--2"></div>
+        </div>
+    </div>
+
+
+    <div class="container leaderboard">
+        
+        <div class="row">
+            <div class="col-md-offset-1 col-sm-12">
+                <h1 class="leaderboard__header">LEADERBOARD</h1>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-offset-1 col-sm-3">
+                <h1 class="leaderboard__sub-header">TOP 10</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <ul class="leaderboard-list">
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Matt Lancashire</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">$299,030.25</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">$339,754.95</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Simon Caulfield</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">$198,639.72</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">$108,560.59</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Hamish Bowman</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">$70,533.63</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">$72,460.00</li>
+                        </ul>
+                    </li>
+
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Damon Warat</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">$282,680.66</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">$65,681.82</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Christine Rudolph</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Christine Rudolph</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Christine Rudolph</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Sarah Hackett</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Sarah Hackett</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Sarah Hackett</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Dwight Ferguson</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Dwight Ferguson</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Dwight Ferguson</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Luke Croft</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Luke Croft</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Luke Croft</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Scott Darwon</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Scott Darwon</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Scott Darwon</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Courtney Maguire</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Courtney Maguire</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Courtney Maguire</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Joseph Lordi</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Joseph Lordi</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Joseph Lordi</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Damon Lewis</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Damon Lewis</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Damon Lewis</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Drew Davies</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Drew Davies</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Drew Davies</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Brandon Wortley</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Brandon Wortley</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Brandon Wortley</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Ben White</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Ben White</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Ben White</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Nicholas Given</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Nicholas Given</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Nicholas Given</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Jez McNamara</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Jez McNamara</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Jez McNamara</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Alexander Shean</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Alexander Shean</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Alexander Shean</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Phillip Harrigan</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Phillip Harrigan</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Phillip Harrigan</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Sonya Treloar</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Sonya Treloar</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Sonya Treloar</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Tom Lyne</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Tom Lyne</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Tom Lyne</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Andrew Goodall</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Andrew Goodall</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Andrew Goodall</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Alison Hewett</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Alison Hewett</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Alison Hewett</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Barry Quinn</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Barry Quinn</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Barry Quinn</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Deborah Evans</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Deborah Evans</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Deborah Evans</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Tony O'Doherty</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Tony O'Doherty</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Tony O'Doherty</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Oliver J. Jonker</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Oliver J. Jonker</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Oliver J. Jonker</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Mathew Abboud</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Mathew Abboud</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Mathew Abboud</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Tyson Clarke</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Tyson Clarke</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Tyson Clarke</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Michael Spork</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Michael Spork</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Michael Spork</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Rosemary Ahearn</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Rosemary Ahearn</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Rosemary Ahearn</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Graeme Sharp</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Graeme Sharp</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Graeme Sharp</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Patrick Dixon</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Patrick Dixon</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Patrick Dixon</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Annette Richards</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Annette Richards</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Annette Richards</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Jack Dixon</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Jack Dixon</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Jack Dixon</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Josh Brown</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Josh Brown</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Josh Brown</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Jason Adcock</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Jason Adcock</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Jason Adcock</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Danny Mailer</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Danny Mailer</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Danny Mailer</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Kylie Loof</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Kylie Loof</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Kylie Loof</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Ian Cuneo</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Ian Cuneo</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Ian Cuneo</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Steven Gow</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Steven Gow</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Steven Gow</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Ann-karyn Fraser</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Ann-karyn Fraser</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Ann-karyn Fraser</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Josephine Johnston-Rowell</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Josephine Johnston-Rowell</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Josephine Johnston-Rowell</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Dean Yesberg</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Dean Yesberg</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Dean Yesberg</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Tristan Rowland</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Tristan Rowland</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Tristan Rowland</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Sam Mayes</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Sam Mayes</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Sam Mayes</li>
+                        </ul>
+                    </li>
+
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Roger Carr</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Roger Carr</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Roger Carr</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Frank Lombardi</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Frank Lombardi</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Frank Lombardi</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Sherrie Storor</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Sherrie Storor</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Sherrie Storor</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Sharon King</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Sharon King</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Sharon King</li>
+                        </ul>
+                    </li>
+
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Jay Mcvicker</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Jay Mcvicker</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Jay Mcvicker</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Jennifer Lockley</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Jennifer Lockley</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Jennifer Lockley</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Michelle McLeod</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Michelle McLeod</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Michelle McLeod</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Tony Cicchiello</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Tony Cicchiello</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Tony Cicchiello</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Brenton Faehrmann</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Brenton Faehrmann</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Brenton Faehrmann</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Tim Douglas</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Tim Douglas</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Tim Douglas</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Milan Markanovic</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Milan Markanovic</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Milan Markanovic</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Melinda Martin</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Melinda Martin</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Melinda Martin</li>
+                        </ul>
+                    </li>
+
+                    <li class="leaderboard-list__outer">
+                        <ul>
+                            <li class="leaderboard-list__item leaderboard-list__item--name">Max Hadgelias</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-now">Max Hadgelias</li>
+                            <li class="leaderboard-list__item leaderboard-list__item--year-last">Max Hadgelias</li>
+                        </ul>
+                    </li>
+
+
+
+                </ul>
+
+            </div>
+        </div>
+
+
+    </div>
+</main><!--site-main-->
+
