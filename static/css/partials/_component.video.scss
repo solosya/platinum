@@ -7,3 +7,6 @@
 	max-width:100%;
 	margin-top:80px;
 }
+.video__player[poster]{
+	object-fit:cover;
+}
