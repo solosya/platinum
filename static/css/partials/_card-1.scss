@@ -1,9 +1,9 @@
 @mixin card-1-base() {
     position:relative;
     a.card {    
-        &:hover {
-            cursor:default;
-        }
+        // &:hover {
+        //     cursor:default;
+        // }
         > article {
             position:relative;
             > figure{
