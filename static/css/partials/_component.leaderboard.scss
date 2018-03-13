@@ -68,3 +68,10 @@
 		color:white;
 	}
 }
+
+.leaderboard-list__item--gold {
+	color: color(gold);
+		&:before {
+			color: color(gold);
+		}
+}
