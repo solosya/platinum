@@ -1,4 +1,5 @@
 {% set path = networkData.templatePath~'/static/images/platinum-logo.png'%}
+{% set headermenu = _Menu.get({'menuType': 'header'}) %}
 
 <header id="masthead" class="site-header showOnScroll">
 
@@ -32,8 +33,7 @@
                         </fieldset>  
                     </li>
 
-                    {% set menuItems = blog.blogHeaderMenu %}
-                    {% for parentItem in menuItems  %}
+                    {% for parentItem in headermenu  %}
 
                        {% set activeClass = (parentItem.link == _AppHelper.getServerUrl()) ? 'site-menu__link--active' : ''%}
                        {% set externalClass = (parentItem.isExternal) ? 'site-menu__link--external-link' : '' %}

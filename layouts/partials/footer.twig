@@ -1,8 +1,6 @@
 {% set path = networkData.templatePath~'/static/images/platinum-logo.png'%}
 {% set pathNews = networkData.templatePath~'/static/images/newscorp.png'%}
-
-{% set menuItems = blog.blogFooterMenu %}
-
+{% set menuItems = _Menu.get({'menuType': 'footer'}) %}
 
 
 
