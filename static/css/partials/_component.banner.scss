@@ -7,7 +7,7 @@
 	@include gradientafter();
 }
 .banner\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 		height:355px;
 	}
 }

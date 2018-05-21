@@ -11,7 +11,7 @@
 }
 
 .related-articles__header\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 		font-size:rem(18);
 	}
 }

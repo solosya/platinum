@@ -4,7 +4,7 @@
 	height:100px;
 }
 .targets\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 		height:auto;
 	}
 }
@@ -27,7 +27,7 @@
 	}
 }
 .target\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 		height:auto;
 		padding-top:0;
 		width:100%;
@@ -47,7 +47,7 @@
 
 
 // .target__img\@sm {
-// 	@media #{$media-mobile} {
+// 	@media #{$mobile} {
 // 		height:
 // 	}
 // }
@@ -60,7 +60,7 @@
 	font-weight:$light;
 }
 .target__text\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 		width:70%;
 		margin:12px auto 0 auto;
 		text-align:center;

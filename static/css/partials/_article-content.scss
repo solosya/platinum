@@ -104,7 +104,7 @@
 		}
 	}
 	p {
-		@media #{$media-mobile} {
+		@media #{$mobile} {
 			font-size: rem(11);
 			line-height: 1.64;
 			letter-spacing: 1px;

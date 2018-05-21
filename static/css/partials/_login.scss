@@ -57,7 +57,7 @@ body.login {
         padding:50px 15%;
         background:none repeat scroll 0 0 $white;
 
-        @media #{$media-ipadPortrait} {
+        @media #{$tabletPortrait} {
             @include padding(50px 0);
         }
 		.txt-link {
@@ -82,7 +82,7 @@ body.login {
 							width: 100%;
 						}
 					}
-					@media #{$media-phone} {
+					@media #{$phone} {
 						display: inline-block;
 						width: 125px;
 					}
@@ -101,7 +101,7 @@ body.login {
 					}
 				}
 			}
-            @media #{$media-ipadPortrait} {
+            @media #{$tabletPortrait} {
                 @include padding(50px 40px);
             }
 
@@ -110,7 +110,7 @@ body.login {
                 @include padding(7px 20px);
                 float:right;
 
-                @media #{$media-iPhoneMedium}, #{$media-phone} {
+                @media #{$iPhoneMedium}, #{$phone} {
                     width: 100%;
                 }
             }
@@ -191,7 +191,7 @@ body.login {
                 float:right;
                 display:inline-block;
 
-                @media #{$media-iPhoneMedium}, #{$media-phone} {
+                @media #{$iPhoneMedium}, #{$phone} {
                     float:left;
                     width:100%;
                 }
@@ -210,7 +210,7 @@ body.login {
 						}
 					}
 
-                    @media #{$media-iPhoneMedium}, #{$media-phone} {
+                    @media #{$iPhoneMedium}, #{$phone} {
                         width:100%;
                         float:none;
                         margin-top:15px;
@@ -229,7 +229,7 @@ body.login {
 						}
 					}
 
-                    /*@media #{$media-iPhoneMedium}, #{$media-phone} {
+                    /*@media #{$iPhoneMedium}, #{$phone} {
                         position:absolute;
                         right:0;
                         top:0;
@@ -244,7 +244,7 @@ body.login {
         }
         .signup-button {
 			text-align: right;
-			@media #{$media-iPhoneLarge}, #{$media-iPhoneMedium}, #{$media-phone} {
+			@media #{$iPhoneLarge}, #{$iPhoneMedium}, #{$phone} {
 				   text-align: left;
 				}
 		}
@@ -259,7 +259,7 @@ body.login {
         width:48.387%;
         margin-bottom:20px;
 
-        @media #{$media-iPhoneMedium}, #{$media-phone} {
+        @media #{$iPhoneMedium}, #{$phone} {
             width: 100%;
         }
     }
@@ -291,7 +291,7 @@ body.login {
             padding:0 10px;
             margin:0 0 15px;
 
-			@media #{$media-iPhoneMedium}, #{$media-phone} {
+			@media #{$iPhoneMedium}, #{$phone} {
 				width: 100%;
 				margin-bottom: 15px;
 				display: block;

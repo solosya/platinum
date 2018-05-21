@@ -33,7 +33,7 @@
     }
 }
 .site-footer-menu__link\@sm {
-    @media #{$media-mobile} {
+    @media #{$mobile} {
         font-size:rem(10);
     }
 }

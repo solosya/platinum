@@ -112,7 +112,7 @@ div.img-thumbnail {
 // .sub-heading {
 //     margin-bottom:20px;
 //     font-size:($baseFontSize * 2) + 2;
-//     @media #{$media-iPhoneLarge}, #{$media-iPhoneMedium}, #{$media-phone} {
+//     @media #{$iPhoneLarge}, #{$iPhoneMedium}, #{$phone} {
 //       font-size:($baseFontSize * 2) - 4;
 //     }
 // }
@@ -130,7 +130,7 @@ div.img-thumbnail {
 // 		background-color:#fff;
 //         @include padding(50px 15%);
 //         border:1px solid rgba(0,0,0, 0.1);
-//         @media #{$media-iPhoneLarge}, #{$media-iPhoneMedium}, #{$media-phone} {
+//         @media #{$iPhoneLarge}, #{$iPhoneMedium}, #{$phone} {
 //           @include padding(50px 8%);
 //         }
 // 	}
@@ -237,7 +237,7 @@ div.img-thumbnail {
 // #upload-page-modal, #upload-cover-image {
 //     @include padding(40px);
 //     background:$white none repeat scroll 0 0;
-//     @media #{$media-phone} {
+//     @media #{$phone} {
 //         @include padding(20px);
 //     }
 // }

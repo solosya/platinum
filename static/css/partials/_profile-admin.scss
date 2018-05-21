@@ -66,7 +66,7 @@
     }
 }
 
-@media #{$media-phone}, #{$media-iPhoneLarge}, #{$media-iPhoneMedium} {
+@media #{$phone}, #{$iPhoneLarge}, #{$iPhoneMedium} {
     #userprofile-sidebar {
         margin-bottom:30px;
         background:$white none repeat scroll 0 0!important;
@@ -343,7 +343,7 @@
                         opacity:1;
                     }
                 }
-                @media #{$media-ipadLandscape}, #{$media-ipadPortrait} {
+                @media #{$tabletLandscape}, #{$tabletPortrait} {
                     display: none;
                 }
             }
@@ -454,7 +454,7 @@
         border:0 none;
         border-left:1px solid #e9ebec;
 
-        @media #{$media-phone}, #{$media-iPhoneMedium} {
+        @media #{$phone}, #{$iPhoneMedium} {
             width:100%;
             border-left:0px none;
         }
@@ -520,7 +520,7 @@
         .description {
             color:#898989;
             padding:10px 20px 0 120px;
-            @media #{$media-ipadPortrait} {
+            @media #{$tabletPortrait} {
                 padding:5px 20px 0 70px;
             }
         }
@@ -774,7 +774,7 @@
 .daily-ten ul > li .img-thumbnail {
     height:88px;
     width:88px;
-    @media #{$media-ipadPortrait} {
+    @media #{$tabletPortrait} {
         height:60px;
         width:60px;
     }
@@ -1027,31 +1027,31 @@ button {
         }
         h1 {
             font-size: ($baseFontSize * 3) - 6 !important;
-            @media #{$media-ipadPortrait} {
+            @media #{$tabletPortrait} {
                 font-size: ($baseFontSize * 2) - 2 !important;
             }
         }
         h2 {
             font-size: ($baseFontSize * 3) - 9 !important;
-            @media #{$media-ipadPortrait} {
+            @media #{$tabletPortrait} {
                 font-size: ($baseFontSize * 2) - 4 !important;
             }
         }
         h3 {
             font-size: ($baseFontSize * 2) + 2 !important;
-            @media #{$media-ipadPortrait} {
+            @media #{$tabletPortrait} {
                 font-size: ($baseFontSize * 2) - 6 !important;
             }
         }
         h4 {
             font-size: ($baseFontSize * 2) + 0 !important;
-            @media #{$media-ipadPortrait} {
+            @media #{$tabletPortrait} {
                 font-size: ($baseFontSize * 1) + 6 !important;
             }
         }
         h5 {
             font-size: ($baseFontSize * 2) - 2 !important;
-            @media #{$media-ipadPortrait} {
+            @media #{$tabletPortrait} {
                 font-size: ($baseFontSize * 1) + 4 !important;
             }
         }

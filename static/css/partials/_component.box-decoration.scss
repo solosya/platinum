@@ -7,7 +7,7 @@
 	top:0;
 }
 .boxes--1\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
     	right:-60px;
 		top:70px;
     }
@@ -35,7 +35,7 @@
 }
 
 .boxes__item\@md {
-	@media #{$media-desktop-down} {
+	@media #{$desktop-down} {
 		width:250px;
 		height:250px;
 		border: 3px solid color(lighter);
@@ -43,7 +43,7 @@
 }
 
 .boxes__item\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 		width:120px;
 		height:120px;
 		border: 1px solid color(lighter);

@@ -33,7 +33,7 @@ a.user__login {
         right:40px;
         z-index:1000;
 
-		@media #{$media-phone}, #{$media-iPhoneLarge}, #{$media-iPhoneMedium} {
+		@media #{$phone}, #{$iPhoneLarge}, #{$iPhoneMedium} {
             right:20px;
             width:250px;
         }
@@ -50,7 +50,7 @@ a.user__login {
             margin:0px 15px 20px 0px;
             height:80px;
             width:80px;
-            @media #{$media-phone}, #{$media-iPhoneLarge}, #{$media-iPhoneMedium} {
+            @media #{$phone}, #{$iPhoneLarge}, #{$iPhoneMedium} {
                 height:50px;
                 width:50px;
             }
@@ -59,7 +59,7 @@ a.user__login {
             float:left;
             margin-bottom:30px;
             width: calc(100% - 115px);
-            @media #{$media-phone}, #{$media-iPhoneLarge}, #{$media-iPhoneMedium} {
+            @media #{$phone}, #{$iPhoneLarge}, #{$iPhoneMedium} {
                 width: calc(100% - 70px);
             }
         }

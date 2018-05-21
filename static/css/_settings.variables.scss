@@ -98,20 +98,21 @@ $navbar-height:             70px;
 $center:					center;
 
 
-$media-desktop: "screen and (max-width: 1194px)";
-$media-smallDevices: "screen and (min-width : 1025px) and (max-width : 1150px)";
-$media-ipadPortrait: "screen and (max-width :992px)";
-$media-phone: "screen and (min-width : 200px) and (max-width : 480px)";
-$media-iPhoneMedium: "screen and (min-width : 481px) and (max-width : 667px)";
-$media-iPhoneLarge: "screen and (min-width : 668px) and (max-width : 767px)";
-
-$media-desktop: "screen and (min-width : 992px)";
-$media-desktop-down: "screen and (max-width : 992px)";
-
-$media-ipadLandscape: "screen and (min-width : 992px) and (max-width : 1024px)";
-$media-iPad-up: "screen and (min-width : 768px)";
-$media-iPad: "screen and (min-width : 768px) and (max-width : 991px)";
-$media-mobile-to-iPad: "screen and (max-width: 991px)";
-$media-mobile: "screen and (max-width : 767px)";
 // Standard transition speed
 $transition: 0.4s;
+
+$tabletPortrait: 		"screen and (max-width :992px)";
+$desktop: 				"screen and (min-width : 992px)";
+$desktop-up: 			"screen and (min-width : 992px)";
+$desktop-down: 			"screen and (max-width : 992px)";
+$mobile-to-iPad: 		"screen and (max-width: 991px)";
+$smallDevices: 			"screen and (min-width : 1025px) and (max-width : 1150px)";
+$ipadPortrait: 			"screen and (max-width : 992px)";
+$phone: 				"screen and (min-width : 200px)  and (max-width : 480px)";
+$iPhoneMedium:	   		"screen and (min-width : 481px)  and (max-width : 667px)";
+$iPhoneLarge: 			"screen and (min-width : 668px)  and (max-width : 767px)";
+$tabletLandscape: 		"screen and (min-width : 992px)  and (max-width : 1024px)";
+$tablet-up: 			"screen and (min-width : 768px)";
+$tablet: 				"screen and (min-width : 768px)  and (max-width : 991px)";
+$up-to-desktop: 		"screen and (max-width : 991px)";
+$mobile: 				"screen and (max-width : 767px)";

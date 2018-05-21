@@ -112,7 +112,7 @@
 
 
 .card-1__mobile {
-    @media #{$media-mobile} {
+    @media #{$mobile} {
         @include card-1-base();
 
         a.card {

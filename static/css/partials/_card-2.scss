@@ -110,7 +110,7 @@
 
 
 .card-2__mobile {
-    @media #{$media-mobile} {
+    @media #{$mobile} {
         @include card-2-base();
 
         margin-bottom: 43px;

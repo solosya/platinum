@@ -6,7 +6,7 @@
     height:345px;
 }
 .site-footer\@sm{
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 	    padding-top:32px;
 	    height:auto;
 	}
@@ -18,7 +18,7 @@
 	text-align:center;
 }
 .site-footer__copyright\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 		margin-top:30px;
 		font-size:rem(12);
 		text-align:center;

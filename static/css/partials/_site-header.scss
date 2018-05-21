@@ -35,7 +35,7 @@
     
     @include transition(100000s);
 
-    @media #{$media-mobile} {
+    @media #{$mobile} {
         height:70px;
         padding-bottom: 65px;
         position: fixed;

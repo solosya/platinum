@@ -5,7 +5,7 @@
 	color:white;
 }
 .connect\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 		margin-top:0;
 	}
 }
@@ -22,7 +22,7 @@
 	letter-spacing: 1px;
 }
 .connect__headline\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 		font-size:rem(22);
 	}
 }
@@ -36,7 +36,7 @@
 	letter-spacing: 1px;
 }
 .connect__date\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 		margin-top:0;
 		font-size:rem(16);
 		letter-spacing: 1px;
@@ -51,7 +51,7 @@
 	letter-spacing: 1px;
 }
 .connect__subhead\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 		font-size:rem(14);
 	}
 }
@@ -66,14 +66,14 @@
 	letter-spacing: 1px;
 }
 .connect__text\@md {
-	@media #{$media-desktop-down} {
+	@media #{$desktop-down} {
 		width:auto;
 		font-size:rem(20);
 	}
 }
 
 .connect__text\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 		font-size:rem(14);
 	}
 }
@@ -85,7 +85,7 @@
 	letter-spacing:0.4px;
 }
 .connect__announce\@sm {
-	@media #{$media-mobile} {
+	@media #{$mobile} {
 		font-size:rem(12);
 	}
 }
