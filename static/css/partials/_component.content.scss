@@ -1,7 +1,8 @@
 .content {
 	color:#fff;
 	position: relative;
-    padding-top: 310px;
+    padding-top: 410px;
+    padding-bottom: 310px;
    	text-align: center;
 	z-index:1;
 }
@@ -72,13 +73,14 @@
 }
 
 .content__tagline {
-	width:796px;
+	width:95%;
 	line-height: 1.15;
 	letter-spacing: 2.6px;
 	margin: auto;
 	font-weight:$thin;
 	font-size:rem(26);
 	text-transform:uppercase;
+	margin-top: 30px;
 }
 .content__tagline\@md {
 	@media #{$tablet} {
