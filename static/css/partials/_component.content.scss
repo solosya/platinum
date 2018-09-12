@@ -5,6 +5,14 @@
     padding-bottom: 310px;
    	text-align: center;
 	z-index:1;
+	@media #{$tablet} {
+		padding-top: 260px;
+    	padding-bottom: 160px;
+	}
+	@media #{$mobile} {
+		padding-top: 210px;
+    	padding-bottom: 110px;
+	}
 }
 
 .content\@sm {
@@ -37,7 +45,7 @@
 }
 .content__headline\@sm {
 	@media #{$mobile} {
-		font-size:rem(38);
+		font-size:rem(35);
 		line-height: 0.96;
 		letter-spacing: 0.8px;
 		width: 300px;

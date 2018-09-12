@@ -36,7 +36,7 @@
     @include transition(100000s);
 
     @media #{$mobile} {
-        height:70px;
+        max-height:70px;
         padding-bottom: 65px;
         position: fixed;
         top: 0;
