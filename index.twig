@@ -9,16 +9,16 @@
 {# {{this.registerJs( templatePath )}} #}
 
 {% set limit = 3 %}
-{% for blog in networkData.networkBlogs %}
-	{% if blog.title | lower == 'homepage' %}
+{# {% for blog in networkData.networkBlogs %}
+	{% if blog.title | lower == 'homepage' %} #}
 		{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0, 'blogid':blog.guid}) %}
-	{% endif %}
+	{# {% endif %}
 {% endfor %}
-{% if articlesArr %}
+{% if articlesArr %} #}
 {% set articles = articlesArr.articles %}
-{% else %}
+{# {% else %}
 	<p> NO ARTICLES FOUND</p>
-{% endif %}
+{% endif %} #}
 
 
 <!-- used to index each article as we loop over throughout the template -->
