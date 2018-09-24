@@ -9,8 +9,11 @@
 {# {{this.registerJs( templatePath )}} #}
 
 {% set limit = 3 %}
-
-{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
+{% for blog in networkData.networkBlogs %}
+	{% if blog.title | lower == 'homepage-three' %}
+		{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0, 'blogid':blog.guid}) %}
+	{% endif %}
+{% endfor %}
 {% set articles = articlesArr.articles %}
 
 
