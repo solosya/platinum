@@ -10,11 +10,15 @@
 
 {% set limit = 3 %}
 {% for blog in networkData.networkBlogs %}
-	{% if blog.title | lower == 'homepage-three' %}
+	{% if blog.title | lower == 'homepage' %}
 		{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0, 'blogid':blog.guid}) %}
 	{% endif %}
 {% endfor %}
+{% if articlesArr %}
 {% set articles = articlesArr.articles %}
+{% else %}
+	<p> NO ARTICLES FOUND</p>
+{% endif %}
 
 
 <!-- used to index each article as we loop over throughout the template -->
