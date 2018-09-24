@@ -11,7 +11,7 @@
 {% set limit = 3 %}
 {# {% for blog in networkData.networkBlogs %}
 	{% if blog.title | lower == 'homepage' %} #}
-		{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0, 'blogid':blog.guid}) %}
+		{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
 	{# {% endif %}
 {% endfor %}
 {% if articlesArr %} #}
