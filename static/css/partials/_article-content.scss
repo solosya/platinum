@@ -83,12 +83,12 @@
 
 	p {
 		font-size: rem(16);
-		font-weight: 500;
+		font-weight: 400;
 		font-family: $font-family-sans-serif;
 		font-style: normal;
 		font-stretch: normal;
 		line-height: 1.5;
-		letter-spacing: normal;
+		letter-spacing: 1.2;
 		color: #fefefe;
 		clear: both;
 		margin-bottom: 20px;
@@ -97,7 +97,7 @@
 		}
 
 		&:first-child {
-			font-weight: 600;
+			font-weight: 500;
 		}
 		&:last-child {
 			margin-bottom:60px;
