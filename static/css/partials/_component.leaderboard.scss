@@ -48,6 +48,7 @@
 	line-height: 1.5;
 	letter-spacing: 1px;
 	margin-bottom:8px;
+	padding-left: 40px;
 
 	&:before {
 	    content: counter(leaderboard-counter);
@@ -57,7 +58,9 @@
 	    font-weight:600;
 	    margin-right:18px;
 	    position: relative;
-	    top: 2px;
+	    position: absolute;
+	    margin-left: -40px;
+	    margin-top: -3px;
 	}
 }
 
